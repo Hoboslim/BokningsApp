@@ -9,7 +9,10 @@
             InitializeComponent();
         }
 
-       
+        private async void OnRegisterPageButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
+        }
     }
 
 }

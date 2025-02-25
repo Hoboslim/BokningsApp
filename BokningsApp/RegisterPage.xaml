@@ -1,33 +1,33 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BokningsApp.MainPage">
-
+             x:Class="BokningsApp.RegisterPage"
+             Title="RegisterPage">
     <VerticalStackLayout>
-        
+
         <Image 
-                WidthRequest="200"
+                WidthRequest="350"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Aspect="AspectFit"
-               Source="output.png"
+               Source="createaccount.png"
                ></Image>
         <Grid
             RowDefinitions="100,*, *"
-            ColumnDefinitions="100,590, *"
+            ColumnDefinitions="100,750, *"
             HeightRequest="50"
             Padding="10"
             RowSpacing="10"
             ColumnSpacing="10"
             >
             <Label
-                Text="Välkommen till bokningsappen för grupprum"
+                Text="Skapa ett konto"
                 FontSize="Medium"
                 Grid.Row="0"
                 Grid.Column="2"
                 >
             </Label>
-            
+
         </Grid>
         <Border 
             Padding="20"
@@ -39,36 +39,61 @@
 
             <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
                 <Label
-            Text="Email"
+            Text="Förnamn"
             FontSize="Medium"
             HorizontalOptions="Center"
             >
                 </Label>
-                
+
                 <Entry
-            x:Name="Login"
+            x:Name="Firstname"
             BackgroundColor="AliceBlue"
             TextColor="Black"
-            Text="Login"
+            Text="Förnamn"
             WidthRequest="250"
             ></Entry>
-                
+
                 <Label  
-            Text="Password"
+            Text="Efternamn"
             FontSize="Medium"
             HorizontalOptions="Center"
             ></Label>
-                
+
                 <Entry
-            x:Name="Password"
+            x:Name="LastName"
             BackgroundColor="AliceBlue"
             TextColor="Black"
-            Text="Password"
+            Text="Efternamn"
             WidthRequest="250"
             ></Entry>
-                
+                <Label
+                    Text="Email"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    ></Label>
+                <Entry
+                    x:Name="Email"
+                    BackgroundColor="AliceBlue"
+                    TextColor="Black"
+                    Text="Email"
+                    WidthRequest="250"
+                    ></Entry>
+                <Label
+                    Text="Lösenord"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    ></Label>
+                <Entry
+                    x:Name="Password"
+                    BackgroundColor="AliceBlue"
+                    TextColor="Black"
+                    Text="Lösenord"
+                    WidthRequest="250"
+                    ></Entry>
+                    
+
                 <Button
-            Text="Sign in"
+            Text="Skapa Konto"
             FontSize="Small"
             WidthRequest="250"
             BackgroundColor="Black"
@@ -78,19 +103,7 @@
             Margin="15"
                     
             ></Button>
-                </VerticalStackLayout>
+            </VerticalStackLayout>
         </Border>
-                <Button
-            Text="Register"
-            FontSize="Small"
-            WidthRequest="250"
-            BackgroundColor="Black"
-            TextColor="White"
-            BorderWidth="5"
-            BorderColor="AliceBlue"
-                    Margin="10"
-                    Clicked="OnRegisterPageButtonClicked"
-        ></Button>
-       
     </VerticalStackLayout>
 </ContentPage>
