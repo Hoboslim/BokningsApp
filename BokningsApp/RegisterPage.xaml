@@ -101,6 +101,7 @@
             BorderWidth="5"
             BorderColor="AliceBlue"
             Margin="15"
+                    Clicked="OnCreatedAccount"
                     
             ></Button>
             </VerticalStackLayout>
