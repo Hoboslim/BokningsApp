@@ -1,0 +1,73 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BokningsApp.InfoOmRum"
+             Title="Info Om Rum">
+
+    <VerticalStackLayout>
+        <Image 
+        WidthRequest="200"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Aspect="AspectFit"
+        Source="output.png" />
+
+        <Label
+        Text="Här kan du se information om olika rum."
+        FontSize="Medium"
+        HorizontalOptions="Center" />
+
+
+        <Picker x:Name="roomPickerTV"
+         Title="Rum med TV"
+         SelectedIndexChanged="OnRoomSelected"
+         WidthRequest="200"
+         Margin="0,10,0,10"
+                >
+            
+            <Picker.Items>
+                <x:String>Välj ett Rum</x:String>
+                <x:String>Fusion</x:String>
+                <x:String>Horizon</x:String>
+                <x:String>Pinnacle</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Picker x:Name="roomPickerSmartBoard"
+         Title="Rum med SmartBoard"
+         SelectedIndexChanged="OnRoomSelected"
+         WidthRequest="200"
+         Margin="0,10,0,10"
+         >
+
+            <Picker.Items>
+                <x:String>Välj ett Rum</x:String>
+                <x:String>Synergy</x:String>
+                <x:String>Nexus</x:String>
+                <x:String>Elevate</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Picker x:Name="roomPickerGeneral"
+     Title="Rum"
+     SelectedIndexChanged="OnRoomSelected"
+     WidthRequest="200"
+     Margin="0,10,0,10"
+     >
+
+            <Picker.Items>
+                <x:String>Välj ett Rum</x:String>
+                <x:String>Vertex</x:String>
+                <x:String>Momentum</x:String>
+                <x:String>Pinnacle</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label x:Name="roomInfoLabel"
+               FontSize="Medium"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Text="Välj ett rum för att visa information" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

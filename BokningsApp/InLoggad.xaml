@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BokningsApp.InLoggad"
+             Title="InLoggad">
+    <VerticalStackLayout>
+        <Image 
+            WidthRequest="200"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Aspect="AspectFit"
+            Source="output.png" />
+
+        <Label
+            Text="Välkommen! Här kan du boka, avboka eller se information om grupprum."
+            FontSize="Medium"
+            HorizontalOptions="Center" />
+
+        <Button
+            Text="Boka Rum"
+            FontSize="Medium"
+            WidthRequest="250"
+            BackgroundColor="Black"
+            TextColor="White"
+            BorderWidth="5"
+            BorderColor="AliceBlue"
+            Margin="15"
+            Clicked="OnBokaRum" />
+
+        <Button
+            Text="Info om rum"
+            FontSize="Medium"
+            WidthRequest="250"
+            BackgroundColor="Black"
+            TextColor="White"
+            BorderWidth="5"
+            BorderColor="AliceBlue"
+            Margin="15"
+            Clicked="OnInfoOmRum" />
+
+        <Button
+            Text="Avboka Rum"
+            FontSize="Medium"
+            WidthRequest="250"
+            BackgroundColor="Black"
+            TextColor="White"
+            BorderWidth="5"
+            BorderColor="AliceBlue"
+            Margin="15"
+            Clicked="OnAvbokaRum" />
+
+        <Button
+            Text="Se mina bokade rum"
+            FontSize="Medium"
+            WidthRequest="300"
+            BackgroundColor="Black"
+            TextColor="White"
+            BorderWidth="5"
+            BorderColor="AliceBlue"
+            Margin="15"
+            Clicked="OnSeMinaBokade" />
+    </VerticalStackLayout>
+</ContentPage>
