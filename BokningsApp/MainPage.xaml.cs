@@ -9,10 +9,7 @@
             InitializeComponent();
         }
 
-        private async void OnButtonLoggin(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new InLoggad());
-        }
+       
     }
 
 }
