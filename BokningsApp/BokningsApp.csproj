@@ -83,6 +83,9 @@
 	  <MauiXaml Update="Admin\BookingHistory.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Admin\EditRoomDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Admin\EditRooms.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

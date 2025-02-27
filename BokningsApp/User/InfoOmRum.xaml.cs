@@ -21,9 +21,9 @@ namespace BokningsApp
             {
                 roomInfo = GetRoomInfo(roomPickerSmartBoard.SelectedItem?.ToString());
             }
-            else if (sender == roomPickerGeneral)
+            else if (sender == roomPickerOutdoor)
             {
-                roomInfo = GetRoomInfo(roomPickerGeneral.SelectedItem?.ToString());
+                roomInfo = GetRoomInfo(roomPickerOutdoor.SelectedItem?.ToString());
             }
 
             // Visa informationen om rummet

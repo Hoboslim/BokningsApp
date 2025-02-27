@@ -47,8 +47,8 @@
             </Picker.Items>
         </Picker>
 
-        <Picker x:Name="roomPickerGeneral"
-     Title="Rum"
+        <Picker x:Name="roomPickerOutdoor"
+     Title="Uterum"
      SelectedIndexChanged="OnRoomSelected"
      WidthRequest="200"
      Margin="0,10,0,10"
