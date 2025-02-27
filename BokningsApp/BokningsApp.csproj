@@ -70,13 +70,4 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.2" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <MauiXaml Update="InfoOmRum.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="InLoggad.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
 </Project>
