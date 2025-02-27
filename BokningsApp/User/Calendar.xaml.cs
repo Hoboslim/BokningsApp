@@ -6,4 +6,9 @@ public partial class Calendar : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void OnDateSelected(object sender, EventArgs e)
+    {
+		await Navigation.PushAsync(new PickRoom());
+    }
 }

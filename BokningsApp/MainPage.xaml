@@ -91,6 +91,18 @@
                     Margin="10"
                     Clicked="OnRegisterPageButtonClicked"
         ></Button>
-       
+
+        <Button
+      Text="Test Admin"
+      FontSize="Small"
+      WidthRequest="250"
+      BackgroundColor="Black"
+      TextColor="White"
+      BorderWidth="5"
+      BorderColor="AliceBlue"
+              Margin="10"
+              Clicked="OnAdminPage"
+  ></Button>
+
     </VerticalStackLayout>
 </ContentPage>

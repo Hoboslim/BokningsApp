@@ -4,9 +4,15 @@
              x:Class="BokningsApp.User.Calendar"
              Title="Calendar">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Button
+           Text="Här ska kallen va"
+           FontSize="Medium"
+           WidthRequest="300"
+           BackgroundColor="Black"
+           TextColor="White"
+           BorderWidth="5"
+           BorderColor="AliceBlue"
+           Margin="15"
+           Clicked="OnDateSelected" />
     </VerticalStackLayout>
 </ContentPage>

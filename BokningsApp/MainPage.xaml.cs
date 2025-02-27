@@ -1,4 +1,6 @@
-﻿namespace BokningsApp
+﻿using BokningsApp.Admin;
+
+namespace BokningsApp
 {
     public partial class MainPage : ContentPage
     {
@@ -17,6 +19,11 @@
         private async void OnButtonLoggin(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new InLoggad());
+        }
+
+        private async void OnAdminPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AdminLoggedIn());
         }
     }
 

@@ -4,9 +4,60 @@
              x:Class="BokningsApp.Admin.AdminLoggedIn"
              Title="AdminLoggedIn">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Image 
+        WidthRequest="200"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Aspect="AspectFit"
+        Source="output.png" />
+
+        <Label
+        Text="Välkommen till din admin vy."
+        FontSize="Medium"
+        HorizontalOptions="Center" />
+
+        <Button
+        Text="Se gamla bokningar"
+        FontSize="Medium"
+        WidthRequest="250"
+        BackgroundColor="Black"
+        TextColor="White"
+        BorderWidth="5"
+        BorderColor="AliceBlue"
+        Margin="15"
+        Clicked="OnOldBookings" />
+
+        <Button
+        Text="Se bokade rum"
+        FontSize="Medium"
+        WidthRequest="250"
+        BackgroundColor="Black"
+        TextColor="White"
+        BorderWidth="5"
+        BorderColor="AliceBlue"
+        Margin="15"
+        Clicked="OnBokedRooms" />
+
+        <Button
+        Text="Redigera rum"
+        FontSize="Medium"
+        WidthRequest="250"
+        BackgroundColor="Black"
+        TextColor="White"
+        BorderWidth="5"
+        BorderColor="AliceBlue"
+        Margin="15"
+        Clicked="OnEditRooms" />
+
+        <Button
+        Text="Lägg till rum"
+        FontSize="Medium"
+        WidthRequest="300"
+        BackgroundColor="Black"
+        TextColor="White"
+        BorderWidth="5"
+        BorderColor="AliceBlue"
+        Margin="15"
+        Clicked="OnAddRoom" />
     </VerticalStackLayout>
 </ContentPage>
