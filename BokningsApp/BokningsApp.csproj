@@ -72,39 +72,44 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Admin\AddRoom.xaml">
+	  <MauiXaml Update="Views\Admin\AddRoom.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Admin\AdminLoggedIn.xaml">
+	  <MauiXaml Update="Views\Admin\AdminLoggedIn.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Admin\BookedRooms.xaml">
+	  <MauiXaml Update="Views\Admin\BookedRooms.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Admin\BookingHistory.xaml">
+	  <MauiXaml Update="Views\Admin\BookingHistory.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Admin\EditRoomDetails.xaml">
+	  <MauiXaml Update="Views\Admin\EditRoomDetails.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Admin\EditRooms.xaml">
+	  <MauiXaml Update="Views\Admin\EditRooms.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Admin\ViewBookedRooms.xaml">
+	  <MauiXaml Update="Views\Admin\ViewBookedRooms.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="User\Calendar.xaml">
+	  <MauiXaml Update="Views\User\Calendar.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="User\PickRoom.xaml">
+	  <MauiXaml Update="Views\User\PickRoom.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="User\PickTime.xaml">
+	  <MauiXaml Update="Views\User\PickTime.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="User\ThankYouPage.xaml">
+	  <MauiXaml Update="Views\User\ThankYouPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 </Project>
