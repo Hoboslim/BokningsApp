@@ -20,7 +20,7 @@ public partial class EditRooms : ContentPage
         {
             roomPicker.Items.Clear();
             foreach (var room in roomData[selectedType])
-            {
+            {   
                 roomPicker.Items.Add(room);
             }
             roomPicker.SelectedIndex = -1; 
