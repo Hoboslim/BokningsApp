@@ -1,3 +1,5 @@
+using BokningsApp.Views.User;
+
 namespace BokningsApp;
 
 public partial class InLoggad : ContentPage
@@ -18,13 +20,13 @@ public partial class InLoggad : ContentPage
         await Navigation.PushAsync(new InfoOmRum());
     }
 
-    private void OnAvbokaRum(object sender, EventArgs e)
+    private async void OnAvbokaRum(object sender, EventArgs e)
     {
-    
+        await Navigation.PushAsync(new CancelRoom());
     }
 
-    private void OnSeMinaBokade(object sender, EventArgs e)
+    private async void OnSeMinaBokade(object sender, EventArgs e)
     {
-   
+        await Navigation.PushAsync(new MyBookings());
     }
 }

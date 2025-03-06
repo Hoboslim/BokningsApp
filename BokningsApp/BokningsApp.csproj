@@ -93,6 +93,12 @@
 	  <MauiXaml Update="Views\User\Calendar.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\User\CancelRoom.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\User\MyBookings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\User\PickRoom.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
