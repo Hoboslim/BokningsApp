@@ -4,9 +4,16 @@
              x:Class="BokningsApp.Admin.AddRoom"
              Title="AddRoom">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Image 
+        WidthRequest="200"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Aspect="AspectFit"
+        Source="output.png" />
+
+        <Label
+        Text="Lägg till nytt rum."
+        FontSize="Medium"
+        HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>
