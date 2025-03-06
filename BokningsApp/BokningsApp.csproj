@@ -93,7 +93,7 @@
 	  <MauiXaml Update="Views\Admin\ViewBookedRooms.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\User\Calendar.xaml">
+	  <MauiXaml Update="Views\User\CalendarPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\User\PickRoom.xaml">
@@ -110,6 +110,12 @@
 	<ItemGroup>
 	  <Folder Include="Models\" />
 	  <Folder Include="ViewModels\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\User\CalendarPage.xaml.cs">
+	    <DependentUpon>CalendarPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

@@ -1,3 +1,6 @@
+using BokningsApp.User;
+using System.Globalization;
+
 namespace BokningsApp;
 
 public partial class InLoggad : ContentPage
@@ -8,9 +11,9 @@ public partial class InLoggad : ContentPage
     }
     
 
-    private void OnBokaRum(object sender, EventArgs e)
+    private async void OnBokaRum(object sender, EventArgs e)
     {
-    
+        await Navigation.PushAsync(new User.CalendarPage());
     }
 
     private async void OnInfoOmRum(object sender, EventArgs e)
