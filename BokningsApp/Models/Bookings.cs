@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BokningsApp.Models
 {
-    internal class Bookings
+    public class Bookings
     {
         public ObjectId Id  { get; set; }
         public ObjectId UserId { get; set; }

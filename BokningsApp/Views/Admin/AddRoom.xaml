@@ -37,7 +37,7 @@
              HorizontalOptions="Center"  
             />
                 <Entry
-            x:Name="Namn"
+            x:Name="RoomNameEntry"
             BackgroundColor="AliceBlue"
             TextColor="Black"
             WidthRequest="250"
@@ -49,7 +49,7 @@
              HorizontalOptions="Center"  
             />
                 <Entry
-            x:Name="Info"
+            x:Name="RoomDescriptionEntry"
             BackgroundColor="AliceBlue"
             TextColor="Black"
             WidthRequest="250"
@@ -60,7 +60,7 @@
              HorizontalOptions="Center"  
 />
                 <Entry
-             x:Name="Platser"
+             x:Name="SlotsEntry"
              BackgroundColor="AliceBlue"
              TextColor="Black"
              WidthRequest="250"
