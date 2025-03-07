@@ -60,6 +60,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Models\**" />
+	  <Compile Remove="Models\**" />
+	  <EmbeddedResource Remove="Models\**" />
+	  <MauiCss Remove="Models\**" />
+	  <MauiXaml Remove="Models\**" />
+	  <None Remove="Models\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.2">
@@ -111,7 +120,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
 	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
