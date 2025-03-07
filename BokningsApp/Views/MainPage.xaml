@@ -46,7 +46,7 @@
                 </Label>
                 
                 <Entry
-            x:Name="Login"
+            x:Name="EmailEntry"
             BackgroundColor="AliceBlue"
             TextColor="Black"
             Placeholder="Login"
@@ -60,7 +60,7 @@
             ></Label>
                 
                 <Entry
-            x:Name="Password"
+            x:Name="PasswordEntry"
             BackgroundColor="AliceBlue"
             TextColor="Black"
             Placeholder="Password"
@@ -79,7 +79,7 @@
             Margin="15"
             Clicked="OnButtonLoggin"
             ></Button>
-                <Button
+                <!--<Button
             Text="Admin Loggin"
             FontSize="Small"
             WidthRequest="250"
@@ -88,8 +88,8 @@
             BorderWidth="5"
             BorderColor="AliceBlue"
             Margin="10"
-            Clicked="OnAdminPage"
-                    />
+            Clicked="OnAdminPage"-->
+                    <!--/>-->
             </VerticalStackLayout>
         </Border>
                 <Button
