@@ -17,5 +17,33 @@ namespace BokningsApp.Data
             var client = new MongoClient(settings);
             return client;
         }
+
+        public static IMongoCollection<Models.User> GetUserCollection()
+        {
+            var client = GetClient();
+            var database = client.GetDatabase("BokningsApp");
+            var collection = database.GetCollection<Models.User>("Users");
+            return collection;
+        }
+
+        public static IMongoCollection<Models.Rooms> GetRoomCollection()
+        {
+            var client = GetClient();
+            var database = client.GetDatabase("BokningsApp");
+            var collection = database.GetCollection<Models.Rooms>("Rooms");
+            return collection;
+        }
+
+        public static IMongoCollection<Models.Bookings> GetBookingCollection()
+        {
+            var client = GetClient();
+            var database = client.GetDatabase("BokningsApp");
+            var collection = database.GetCollection<Models.Bookings>("Bookings");
+            return collection;
+        }
+
+
+
+
     }
 }

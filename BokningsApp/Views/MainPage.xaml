@@ -49,7 +49,7 @@
             x:Name="Login"
             BackgroundColor="AliceBlue"
             TextColor="Black"
-            Text="Login"
+            Placeholder="Login"
             WidthRequest="250"
             ></Entry>
                 
@@ -63,7 +63,7 @@
             x:Name="Password"
             BackgroundColor="AliceBlue"
             TextColor="Black"
-            Text="Password"
+            Placeholder="Password"
             WidthRequest="250"
             ></Entry>
                 

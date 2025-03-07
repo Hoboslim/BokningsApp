@@ -46,10 +46,10 @@
                 </Label>
 
                 <Entry
-            x:Name="Firstname"
+            x:Name="FirstNameEntry"
             BackgroundColor="AliceBlue"
             TextColor="Black"
-            Text="Förnamn"
+            Placeholder="Förnamn"
             WidthRequest="250"
             ></Entry>
 
@@ -60,10 +60,10 @@
             ></Label>
 
                 <Entry
-            x:Name="LastName"
+            x:Name="LastNameEntry"
             BackgroundColor="AliceBlue"
             TextColor="Black"
-            Text="Efternamn"
+            Placeholder="Efternamn"
             WidthRequest="250"
             ></Entry>
                 <Label
@@ -72,10 +72,10 @@
                     HorizontalOptions="Center"
                     ></Label>
                 <Entry
-                    x:Name="Email"
+                    x:Name="EmailEntry"
                     BackgroundColor="AliceBlue"
                     TextColor="Black"
-                    Text="Email"
+                    Placeholder="Email"
                     WidthRequest="250"
                     ></Entry>
                 <Label
@@ -84,16 +84,17 @@
                     HorizontalOptions="Center"
                     ></Label>
                 <Entry
-                    x:Name="Password"
+                    x:Name="PasswordEntry"
+                    IsPassword="True"
                     BackgroundColor="AliceBlue"
                     TextColor="Black"
-                    Text="Lösenord"
+                    Placeholder="Password"
                     WidthRequest="250"
                     ></Entry>
                     
 
                 <Button
-            Text="Skapa Konto"
+            Text="Skapa Userkonto"
             FontSize="Small"
             WidthRequest="250"
             BackgroundColor="Black"
@@ -101,9 +102,21 @@
             BorderWidth="5"
             BorderColor="AliceBlue"
             Margin="15"
-                    Clicked="OnCreatedAccount"
-                    
+            Clicked="OnCreatedAccount"     
             ></Button>
+                
+                <Button
+            Text="Skapa Adminkonto"
+            FontSize="Small"
+            WidthRequest="250"
+            BackgroundColor="Black"
+            TextColor="White"
+            BorderWidth="5"
+            BorderColor="AliceBlue"
+            Margin="15"
+            Clicked="OnCreatedAccountAdmin"
+                    />
+
             </VerticalStackLayout>
         </Border>
     </VerticalStackLayout>

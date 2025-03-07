@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BokningsApp.Views.CreatedAdminPage"
+             Title="CreatedAdminPage">
+    <VerticalStackLayout>
+        <Label 
+       Text="Tack för du skapat ett konto hos oss!"
+       FontSize="Large"
+       VerticalOptions="Center" 
+       HorizontalOptions="Center" />
+        <Image 
+    WidthRequest="600"
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+    Aspect="AspectFit"
+   Source="admincreated.png"
+   ></Image>
+        <Button
+       Text="Tryck för att återgå till startsidan"
+       Clicked="OnClickedBackToMain"
+       WidthRequest="250"
+       HeightRequest="75"
+       Margin="25"
+       BackgroundColor="Black"
+       TextColor="White"
+       BorderWidth="5"
+       BorderColor="AliceBlue"
+       
+       ></Button>
+    </VerticalStackLayout>
+</ContentPage>
