@@ -6,4 +6,9 @@ public partial class ThankYouPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void OnToInloggedPage(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//inloggad");
+    }
 }

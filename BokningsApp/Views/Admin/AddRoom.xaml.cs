@@ -6,4 +6,9 @@ public partial class AddRoom : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void OnEditRoomsDone(object sender, EventArgs e)
+    {
+
+    }
 }

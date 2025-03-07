@@ -67,6 +67,7 @@
             WidthRequest="250"
             ></Entry>
                 
+                
                 <Button
             Text="Sign in"
             FontSize="Small"
@@ -78,7 +79,18 @@
             Margin="15"
             Clicked="OnButtonLoggin"
             ></Button>
-                </VerticalStackLayout>
+                <Button
+            Text="Admin Loggin"
+            FontSize="Small"
+            WidthRequest="250"
+            BackgroundColor="Black"
+            TextColor="White"
+            BorderWidth="5"
+            BorderColor="AliceBlue"
+            Margin="10"
+            Clicked="OnAdminPage"
+                    />
+            </VerticalStackLayout>
         </Border>
                 <Button
             Text="Register"
@@ -88,21 +100,11 @@
             TextColor="White"
             BorderWidth="5"
             BorderColor="AliceBlue"
-                    Margin="10"
-                    Clicked="OnRegisterPageButtonClicked"
+            Margin="10"
+            Clicked="OnRegisterPageButtonClicked"
         ></Button>
 
-        <Button
-      Text="Test Admin"
-      FontSize="Small"
-      WidthRequest="250"
-      BackgroundColor="Black"
-      TextColor="White"
-      BorderWidth="5"
-      BorderColor="AliceBlue"
-              Margin="10"
-              Clicked="OnAdminPage"
-  ></Button>
+      
 
     </VerticalStackLayout>
 </ContentPage>

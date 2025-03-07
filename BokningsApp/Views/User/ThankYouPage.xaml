@@ -4,9 +4,31 @@
              x:Class="BokningsApp.User.ThankYouPage"
              Title="ThankYouPage">
     <VerticalStackLayout>
+
+                <Image 
+        WidthRequest="200"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Aspect="AspectFit"
+        Source="output.png" />
+
+
+
         <Label 
-            Text="Welcome to .NET MAUI!"
+            FontSize="Large"
+            Text="Tack för din Bokning!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+            <Button
+        Text="Tillbaka till startsidan"
+        FontSize="Medium"
+        WidthRequest="250"
+        BackgroundColor="Black"
+        TextColor="White"
+        BorderWidth="5"
+        BorderColor="AliceBlue"
+        Margin="15"
+        Clicked="OnToInloggedPage" />
     </VerticalStackLayout>
 </ContentPage>

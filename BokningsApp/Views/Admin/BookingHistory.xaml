@@ -3,10 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BokningsApp.Admin.BookingHistory"
              Title="BookingHistory">
+    <ScrollView>
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Image 
+       WidthRequest="200"
+       HorizontalOptions="Center"
+       VerticalOptions="Center"
+       Aspect="AspectFit"
+       Source="output.png" />
+
+        <Label
+       Text="Här ser du bokningshistorik."
+       FontSize="Medium"
+       HorizontalOptions="Center" />
+
+        <Border 
+        Padding="20"
+        Stroke="White"
+        StrokeThickness="2"
+        StrokeShape="RoundRectangle"
+        BackgroundColor="Transparent"
+        HorizontalOptions="Center">
+
+            <VerticalStackLayout
+            Spacing="10" HorizontalOptions="Center">
+                <Label
+            Text="Här ska info va"
+            FontSize="Medium"
+            HorizontalOptions="Center"
+                />
+            </VerticalStackLayout>
+        </Border>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
