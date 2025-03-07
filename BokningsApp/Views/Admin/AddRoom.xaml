@@ -25,19 +25,20 @@
 
             <VerticalStackLayout
              Spacing="10" HorizontalOptions="Center">
-            
-                <Label
-             Text="Picker för att välja typ av rum"
-             FontSize="Medium"
-             HorizontalOptions="Center"  
-            />
+
+                <Picker
+                   Title="Välj typ av rum"
+                    x:Name="PickerEntry"
+                    ItemsSource="{Binding RoomTypes}"
+                    SelectedItem="{Binding SelectedRoomType}"
+                   />
                 <Label
              Text="Namn på rum"
              FontSize="Medium"
              HorizontalOptions="Center"  
             />
                 <Entry
-            x:Name="Namn"
+            x:Name="RoomNameEntry"
             BackgroundColor="AliceBlue"
             TextColor="Black"
             WidthRequest="250"
@@ -49,7 +50,7 @@
              HorizontalOptions="Center"  
             />
                 <Entry
-            x:Name="Info"
+            x:Name="RoomDescriptionEntry"
             BackgroundColor="AliceBlue"
             TextColor="Black"
             WidthRequest="250"
@@ -60,7 +61,7 @@
              HorizontalOptions="Center"  
 />
                 <Entry
-             x:Name="Platser"
+             x:Name="SlotsEntry"
              BackgroundColor="AliceBlue"
              TextColor="Black"
              WidthRequest="250"
@@ -74,7 +75,7 @@
              BorderWidth="5"
              BorderColor="AliceBlue"
              Margin="15"
-             Clicked="OnEditRoomsDone" />
+             Clicked="OnAddRoomsDone" />
 
             </VerticalStackLayout>
         </Border>
