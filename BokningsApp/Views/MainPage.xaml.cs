@@ -26,7 +26,7 @@ namespace BokningsApp
             string email = EmailEntry.Text;
             string password = PasswordEntry.Text;
 
-            var filter = Builders<Models.User>.Filter.Eq(x => x.Email, Users.Email);
+            var filter = Builders<Models.User>.Filter.Eq(x => x.Email, email);
             var user = await Data.DB.GetUserCollection().Find(filter).FirstOrDefaultAsync();
 
             if (user != null && user.Password == password)
