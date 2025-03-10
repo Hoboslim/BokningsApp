@@ -31,11 +31,11 @@ namespace BokningsApp
 
             if (user != null && user.Password == password)
             {
-                if (user.Role == "Admin")
+                if (user.Role.ToLower() == "admin")
                 {
                     await Navigation.PushAsync(new AdminLoggedIn());
                 }
-                else if (user.Role == "User")
+                else if (user.Role.ToLower() == "user")
                 {
                     await Navigation.PushAsync(new InLoggad());
                 }
