@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BokningsApp.Models
 {
-    internal class RoomType
+    internal class RoomTypes
     {
-
+        public string RoomType { get; set;  }
     }
 }
