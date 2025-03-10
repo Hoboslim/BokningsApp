@@ -1,6 +1,7 @@
 ﻿using BokningsApp.Admin;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MongoDB.Driver;
+using System.Linq.Expressions;
 
 namespace BokningsApp
 {
@@ -21,24 +22,45 @@ namespace BokningsApp
 
         private async void OnButtonLoggin(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new InLoggad());
 
             string email = EmailEntry.Text;
             string password = PasswordEntry.Text;
 
-            var filter = Builders<Models.User>.Filter.Eq(x => x.Email, email);
-            var user = await Data.DB.GetUserCollection().Find(filter).FirstOrDefaultAsync();
-
-            if (user != null && user.Password == password)
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                if (user.Role.ToLower() == "admin")
+                await DisplayAlert("Error,", "Please enter both email and passsword!.", "OK");
+                return;
+            }
+            try
+            {
+
+                var filter = Builders<Models.User>.Filter.Eq(x => x.Email, email);
+                var user = await Data.DB.GetUserCollection().Find(filter).FirstOrDefaultAsync();
+
+                if (user == null || user.Password != password)
                 {
-                    await Navigation.PushAsync(new AdminLoggedIn());
+                    await DisplayAlert("Login Failed", "Invalid email or password", "OK");
+                    return;
                 }
-                else if (user.Role.ToLower() == "user")
+                if (user != null && user.Password == password)
                 {
-                    await Navigation.PushAsync(new InLoggad());
+
+
+                    if (user.Role == "Admin")
+                    {
+                        await Navigation.PushAsync(new AdminLoggedIn());
+                    }
+                    else if (user.Role == "User")
+                    {
+                        await Navigation.PushAsync(new InLoggad());
+                    }
                 }
+
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", "An unexpected error occured. Please try again", "OK");
+                return;
             }
 
         }
@@ -48,5 +70,5 @@ namespace BokningsApp
         //    await Navigation.PushAsync(new AdminLoggedIn());
         //}
     }
-
 }
+

@@ -11,7 +11,7 @@ namespace BokningsApp.Data
     {
         private static MongoClient GetClient()
         {
-            const string connectionUri = "mongodb+srv://Noel:Noel123@cluster0.0wmw6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+            const string connectionUri = "mongodb+srv://teddyblomgren:Teddy1Plugg1@cluster0.0wmw6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"; 
             var settings = MongoClientSettings.FromConnectionString(connectionUri);
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             var client = new MongoClient(settings);

@@ -4,9 +4,9 @@ namespace BokningsApp.Admin;
 
 public partial class AddRoom : ContentPage
 {
-	public Models.Rooms Room { get; set; }
+    public Models.Rooms Room { get; set; }
     public AddRoom(Models.Rooms room)
-	{
+    {
         
 		InitializeComponent();
         Room = room;
@@ -19,21 +19,21 @@ public partial class AddRoom : ContentPage
         }
     }
     private async void OnAddRoomsDone(object sender, EventArgs e)
+{
+    if (Room != null)
     {
-        if (Room != null)
+        Models.Rooms room = new Models.Rooms
         {
-            Models.Rooms room = new Models.Rooms
-            {
-                Id = ObjectId.GenerateNewId(),
-                RoomName = RoomNameEntry.Text,
-               // RoomType = (Models.RoomType)PickerEntry.SelectedItem,
-                RoomDescription = RoomDescriptionEntry.Text,
-                Slots = int.Parse(SlotsEntry.Text),
-            };
-            
-            await Data.DB.GetRoomCollection().InsertOneAsync(room);
-            Navigation.PushAsync(new AdminLoggedIn());
-        }
+            Id = ObjectId.GenerateNewId(),
+            RoomName = RoomNameEntry.Text,
+            // RoomType = (Models.RoomType)PickerEntry.SelectedItem,
+            RoomDescription = RoomDescriptionEntry.Text,
+            Slots = int.Parse(SlotsEntry.Text),
+        };
 
+        await Data.DB.GetRoomCollection().InsertOneAsync(room);
+        Navigation.PushAsync(new AdminLoggedIn());
     }
+
+}
 }
