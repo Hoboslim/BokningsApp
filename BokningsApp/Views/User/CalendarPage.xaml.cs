@@ -8,11 +8,14 @@ public partial class CalendarPage : ContentPage
 
     public ObservableCollection<CalendarDay> Days { get; set; } = new();
     public string SelectedMonth { get; set; }
+
+    private DateTime _currentMonth;
     public CalendarPage()
     {
         InitializeComponent();
         BindingContext = this;
-        GenerateCalendar(DateTime.Now);
+        _currentMonth = DateTime.Now;
+        GenerateCalendar(_currentMonth);
     }
 
     void GenerateCalendar(DateTime date)
@@ -23,8 +26,8 @@ public partial class CalendarPage : ContentPage
 
         DateTime firstDay = new DateTime(date.Year, date.Month, 1);
         int daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
-        
-       int startDayOfWeek = ((int)firstDay.DayOfWeek + 6 ) % 7;
+
+        int startDayOfWeek = ((int)firstDay.DayOfWeek + 6) % 7;
 
         for (int i = 0; i < startDayOfWeek; i++)
         {
@@ -42,7 +45,7 @@ public partial class CalendarPage : ContentPage
 
     public class CalendarDay
     {
-        public string Day { get; set; }
+        public string? Day { get; set; }
 
     }
 
@@ -50,5 +53,18 @@ public partial class CalendarPage : ContentPage
     private async void OnDateSelected(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new PickRoom());
+    }
+
+    private void OnPreviousMonthClicked(object sender, EventArgs e)
+    {
+        _currentMonth = _currentMonth.AddMonths(-1);
+        GenerateCalendar(_currentMonth);
+
+    }
+
+    private void OnNextMonthClicked(object sender, EventArgs e)
+    {
+        _currentMonth = _currentMonth.AddMonths(1);
+        GenerateCalendar(_currentMonth);
     }
 }
