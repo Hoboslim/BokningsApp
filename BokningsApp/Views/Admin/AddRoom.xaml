@@ -31,7 +31,13 @@
                     x:Name="PickerEntry"
                     ItemsSource="{Binding RoomTypes}"
                     SelectedItem="{Binding SelectedRoomType}"
+                    ItemDisplayBinding="{Binding Name}"
                    />
+                <Label
+                    Text="{Binding SelectedRoomType.Name}"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    ></Label>
                 <Label
              Text="Namn på rum"
              FontSize="Medium"

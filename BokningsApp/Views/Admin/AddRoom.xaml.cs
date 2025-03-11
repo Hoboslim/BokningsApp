@@ -1,15 +1,21 @@
+using BokningsApp.Models;
+using BokningsApp.ViewModels;
 using MongoDB.Bson;
 
 namespace BokningsApp.Admin;
 
 public partial class AddRoom : ContentPage
 {
+    public PickRoomViewModel ViewModel { get; set; }
     public Models.Rooms Room { get; set; }
     public AddRoom(Models.Rooms room)
     {
-        
-		InitializeComponent();
+
+        InitializeComponent();
         Room = room;
+        ViewModel = new PickRoomViewModel();
+        BindingContext = ViewModel;
+
         if (room != null)
         {
             RoomNameEntry.Text = room.RoomName;
@@ -19,21 +25,21 @@ public partial class AddRoom : ContentPage
         }
     }
     private async void OnAddRoomsDone(object sender, EventArgs e)
-{
-    if (Room != null)
     {
-        Models.Rooms room = new Models.Rooms
+        if (Room != null)
         {
-            Id = ObjectId.GenerateNewId(),
-            RoomName = RoomNameEntry.Text,
-            // RoomType = (Models.RoomType)PickerEntry.SelectedItem,
-            RoomDescription = RoomDescriptionEntry.Text,
-            Slots = int.Parse(SlotsEntry.Text),
-        };
+            Models.Rooms room = new Models.Rooms
+            {
+                Id = ObjectId.GenerateNewId(),
+                RoomName = RoomNameEntry.Text,
+                RoomType = ViewModel.SelectedRoomType.ToString(),
+                RoomDescription = RoomDescriptionEntry.Text,
+                Slots = int.Parse(SlotsEntry.Text),
+            };
 
-        await Data.DB.GetRoomCollection().InsertOneAsync(room);
-        Navigation.PushAsync(new AdminLoggedIn());
+            await Data.DB.GetRoomCollection().InsertOneAsync(room);
+            Navigation.PushAsync(new AdminLoggedIn());
+        }
+
     }
-
-}
 }

@@ -1,3 +1,4 @@
+using BokningsApp.ViewModels;
 using BokningsApp.Views;
 using MongoDB.Bson;
 
@@ -5,11 +6,13 @@ namespace BokningsApp.Admin;
 
 public partial class AddRoomType : ContentPage
 {
+    
 	public Models.RoomTypes RoomTypes { get; set; }
     public AddRoomType(Models.RoomTypes roomTypes)
 	{
 		InitializeComponent();
         RoomTypes = roomTypes;
+        
 
         if (roomTypes != null)
         {
