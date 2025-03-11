@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BokningsApp.Admin.EditRooms"
              Title="EditRooms">
-    <VerticalStackLayout Padding="20">
+    <VerticalStackLayout>
         <Image 
             WidthRequest="200"
             HorizontalOptions="Center"
@@ -15,27 +15,44 @@
             Text="Här kan du se information om olika rum."
             FontSize="Medium"
             HorizontalOptions="Center" />
-
+        <Label
+            Text="Välj typ av rum"
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            Margin="0,10,0,10"
+            />
         <Picker
             x:Name="roomTypePicker"
             Title="Välj typ av rum"
             SelectedIndexChanged="OnRoomTypeSelected"
             WidthRequest="250"
-            Margin="0,10,0,10">
-            <Picker.Items>
-                <x:String>Rum med TV</x:String>
-                <x:String>Rum med SmartBoard</x:String>
-                <x:String>Uterum</x:String>
-            </Picker.Items>
-        </Picker>
+           />
 
+        <Label
+            Text="Välj ett rum"
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            Margin="0,10,0,10"
+            />
         <Picker
+         
          x:Name="roomPicker"
          Title="Välj ett rum"
          SelectedIndexChanged="OnEditRoomClicked"
          WidthRequest="250"
-         Margin="0,10,0,10">
-        </Picker>
+         Margin="0,10,0,10"
+        />
+            <!--<Button
+        Text="Redigera rum"
+        FontSize="Medium"
+        WidthRequest="250"
+        BackgroundColor="Black"
+        TextColor="White"
+        BorderWidth="5"
+        BorderColor="AliceBlue"
+        Margin="15"
+        Clicked="OnOldBookings"
+        />-->
         
     </VerticalStackLayout>
 </ContentPage>

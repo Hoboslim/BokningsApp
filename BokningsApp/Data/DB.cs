@@ -49,8 +49,13 @@ namespace BokningsApp.Data
             return collection;
         }
 
-
-
+        public static IMongoCollection<Models.Rooms> GetRoomsCollection()
+        {
+            var client = GetClient();
+            var database = client.GetDatabase("BokningsApp");
+            var collection = database.GetCollection<Models.Rooms>("Rooms");
+            return collection;
+        }
 
     }
 }

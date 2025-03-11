@@ -12,9 +12,54 @@
         Source="output.png" />
 
         <Label
-        Text="Info om valt rum."
+        Text="Här kan du redigera rummet"
         FontSize="Medium"
         HorizontalOptions="Center" />
-        
+
+        <Label
+             Text="Namn på rum"
+             FontSize="Medium"
+             HorizontalOptions="Center"  
+            />
+        <Entry
+            x:Name="RoomNameEntry"
+            BackgroundColor="AliceBlue"
+            TextColor="Black"
+            WidthRequest="250"
+            ></Entry>
+
+        <Label
+             Text="Info om rum"
+             FontSize="Medium"
+             HorizontalOptions="Center"  
+            />
+        <Entry
+            x:Name="RoomDescriptionEntry"
+            BackgroundColor="AliceBlue"
+            TextColor="Black"
+            WidthRequest="250"
+            ></Entry>
+        <Label
+             Text="Antal platser"
+             FontSize="Medium"
+             HorizontalOptions="Center"  
+/>
+        <Entry
+             x:Name="SlotsEntry"
+             BackgroundColor="AliceBlue"
+             TextColor="Black"
+             WidthRequest="250"
+             ></Entry>
+        <Button
+             Text="Spara ändringar"
+             FontSize="Medium"
+             WidthRequest="250"
+             BackgroundColor="Black"
+             TextColor="White"
+             BorderWidth="5"
+             BorderColor="AliceBlue"
+             Margin="15"
+             Clicked="OnAddRoomsDone" />
+
     </VerticalStackLayout>
 </ContentPage>

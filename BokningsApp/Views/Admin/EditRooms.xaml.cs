@@ -1,42 +1,56 @@
+using System.Collections.Generic;
+using MongoDB;
+using BokningsApp.Data;
+using BokningsApp.Models;
+using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
+
+
 namespace BokningsApp.Admin;
 
 public partial class EditRooms : ContentPage
 {
-    private Dictionary<string, List<string>> roomData = new Dictionary<string, List<string>>()
-    {
-        { "Rum med TV", new List<string> { "Fusion", "Horizon", "Pinnacle" } },
-        { "Rum med SmartBoard", new List<string> { "Synergy", "Nexus", "Elevate" } },
-        { "Uterum", new List<string> { "Vertex", "Momentum", "Pinnacle" } }
-    };
+    private Dictionary<string, List<string>> roomData = new();
 
     public EditRooms()
     {
         InitializeComponent();
+        LoadRoomsFromDB();
+
+    }
+    private async void LoadRoomsFromDB()
+    {
+        var roomCollection = DB.GetRoomsCollection();
+        var rooms = await roomCollection.Find(FilterDefinition<Models.Rooms>.Empty).ToListAsync();
+
+        roomData = rooms
+             .Where(r => !string.IsNullOrEmpty(r.RoomType) && !string.IsNullOrEmpty(r.RoomName))
+            .GroupBy(r => r.RoomType)
+            .ToDictionary(g => g.Key, g => g.Select(r => r.RoomName).ToList());
+        roomTypePicker.ItemsSource = roomData.Keys.ToList();
     }
 
     private void OnRoomTypeSelected(object sender, EventArgs e)
     {
-        if (roomTypePicker.SelectedItem is string selectedType && roomData.ContainsKey(selectedType))
+        if (roomTypePicker.SelectedItem is string selectedType && roomData.TryGetValue(selectedType, out var rooms))
         {
-            roomPicker.Items.Clear();
-            foreach (var room in roomData[selectedType])
-            {   
-                roomPicker.Items.Add(room);
-            }
-            roomPicker.SelectedIndex = -1; 
-          
+            roomPicker.ItemsSource = rooms;
+            roomPicker.SelectedItem = null;
         }
     }
+
     private async void OnEditRoomClicked(object sender, EventArgs e)
     {
-        if (roomPicker.SelectedItem is string selectedRoom && !string.IsNullOrEmpty(selectedRoom))
-        {
-           // var editPage = new EditRoomDetails(selectedRoom);
-            //await Navigation.PushAsync(editPage);
-        }
-        else
-        {
-            await DisplayAlert("Fel", "Välj ett rum först!", "OK");
-        }
+        var room = await DB.GetRoomsCollection().Find(r => r.RoomName == roomPicker.SelectedItem.ToString()).FirstOrDefaultAsync();
+        await Navigation.PushAsync(new EditRoomDetails(room));
+    }
+
+    private void OnOldBookings(object sender, EventArgs e)
+    {
+
     }
 }
