@@ -12,7 +12,7 @@ public partial class AddRoom : ContentPage
     {
 
         InitializeComponent();
-        Room = room;
+        Room = room ?? new Models.Rooms();
         ViewModel = new PickRoomViewModel();
         BindingContext = ViewModel;
 
@@ -32,7 +32,7 @@ public partial class AddRoom : ContentPage
             {
                 Id = ObjectId.GenerateNewId(),
                 RoomName = RoomNameEntry.Text,
-                RoomType = ViewModel.SelectedRoomType.ToString(),
+                RoomType = ViewModel.SelectedRoomType?.RoomType ?? "",
                 RoomDescription = RoomDescriptionEntry.Text,
                 Slots = int.Parse(SlotsEntry.Text),
             };
