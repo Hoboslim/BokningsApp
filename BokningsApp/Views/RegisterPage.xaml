@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BokningsApp.RegisterPage"
              Title="RegisterPage">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
 
         <Image 
                 WidthRequest="350"
@@ -120,4 +121,5 @@
             </VerticalStackLayout>
         </Border>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
