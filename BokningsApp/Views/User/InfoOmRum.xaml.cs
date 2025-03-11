@@ -1,50 +1,61 @@
+using BokningsApp.Data;
+using System.Runtime.InteropServices.Marshalling;
+
 namespace BokningsApp
 {
     public partial class InfoOmRum : ContentPage
     {
+        private RoomInformation _roomInformation;
         public InfoOmRum()
         {
             InitializeComponent();
+            _roomInformation = new RoomInformation();
+            LoadRoomTypes();
+            
         }
 
-        // Hantera valet från varje Picker
+        //Hanterar val av rumstyp i första pickern
+        private void OnRoomTypeSelected(object sender, EventArgs e)
+        {
+            var selectedRoomType = roomTypePicker.SelectedItem.ToString();
+            LoadRoomsByType(selectedRoomType);
+
+        }
+
+        //laddar rummen baserat på vad man valt i första pickern
+        private void LoadRoomsByType(string roomType)
+        {
+            var rooms = _roomInformation.GetRoomsByType(roomType);
+            roomPicker.ItemsSource = rooms.Select(r => r.RoomName).ToList();
+        }
+
+        //Hanterar val i andra pickern
         private void OnRoomSelected(object sender, EventArgs e)
         {
-            // Hämta det valda rummet för respektive Picker
-            string roomInfo = "";
+            var selectedRoomName = roomPicker.SelectedItem.ToString();
+            ShowRoomInfo(selectedRoomName);
 
-            if (sender == roomPickerTV)
-            {
-                roomInfo = GetRoomInfo(roomPickerTV.SelectedItem?.ToString());
-            }
-            else if (sender == roomPickerSmartBoard)
-            {
-                roomInfo = GetRoomInfo(roomPickerSmartBoard.SelectedItem?.ToString());
-            }
-            else if (sender == roomPickerOutdoor)
-            {
-                roomInfo = GetRoomInfo(roomPickerOutdoor.SelectedItem?.ToString());
-            }
-
-            // Visa informationen om rummet
-            roomInfoLabel.Text = roomInfo;
         }
 
-        // Hämta information för rummet
-        private string GetRoomInfo(string selectedRoom)
+        //Visar informationen från det valda rummet
+        private void ShowRoomInfo(string roomName)
         {
-            return selectedRoom switch
+            var room = _roomInformation.GetRoomByName(roomName);
+            if(room != null)
             {
-                "Fusion" => "Fusion - Detta rum har en TV och modern utrustning.",
-                "Horizon" => "Horizon - Ett rum med höghastighetsinternet och projektor.",
-                "Pinnacle" => "Pinnacle - En plats för kreativt arbete med SmartBoard.",
-                "Synergy" => "Synergy - Ett rum med avancerad SmartBoard-teknologi.",
-                "Nexus" => "Nexus - Ett rum för digitala möten.",
-                "Elevate" => "Elevate - Ett rum för högt kreativa möten.",
-                "Vertex" => "Vertex - Ett rum med panoramautsikt.",
-                "Momentum" => "Momentum - Ett rum för snabb brainstorming.",
-                _ => "Välj ett rum för att visa information."
-            };
+                roomInfoLabel.Text = $"Rum: {room.RoomName} \nBeskrivning: {room.RoomDescription}\nPlatser: {room.Slots}";
+            }
+            else
+            {
+                roomInfoLabel.Text = "Finns ingen information för nuvarande";
+            }
+        }
+
+        //laddar dynamiskt in rumtyperna från mongoDB
+        private void LoadRoomTypes()
+        {
+            var roomTypes = _roomInformation.GetAllRoomTypes();
+            roomTypePicker.ItemsSource = roomTypes.Select(rt => rt.RoomType).ToList();
         }
     }
 }
