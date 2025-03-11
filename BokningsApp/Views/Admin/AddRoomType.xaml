@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BokningsApp.Admin.AddRoomType"
+             Title="AddRoomType">
+    <VerticalStackLayout>
+        <Image 
+        WidthRequest="200"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Aspect="AspectFit"
+        Source="output.png" />
+
+                <Label
+        Text="Här kan du lägga till nya typer av rum /n."
+        FontSize="Medium"
+        HorizontalOptions="Center" />
+
+
+        <Label
+         Text="Namn på rum"
+         FontSize="Medium"
+         HorizontalOptions="Center"
+        
+        />
+        <Entry
+        x:Name="RoomTypeNameEntry"
+        BackgroundColor="AliceBlue"
+        TextColor="Black"
+        WidthRequest="250"
+        Placeholder="Rumnamn"
+        />
+
+        <Button
+        Text="Lägg till rumtyp"
+        FontSize="Medium"
+        WidthRequest="250"
+        BackgroundColor="Black"
+        TextColor="White"
+        BorderWidth="5"
+        BorderColor="AliceBlue"
+        Margin="15"
+        Clicked="OnAddRoomType"
+        />
+        
+    </VerticalStackLayout>
+</ContentPage>

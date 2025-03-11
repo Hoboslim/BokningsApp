@@ -26,4 +26,9 @@ public partial class AdminLoggedIn : ContentPage
     {
         await Navigation.PushAsync(new AddRoom(null));
     }
+
+    private async void OnAddRoomType(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AddRoomType(null));
+    }
 }

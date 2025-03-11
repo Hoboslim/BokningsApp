@@ -6,7 +6,6 @@
     <ScrollView>
         <VerticalStackLayout>
 
-
         <Image 
                 WidthRequest="350"
                 HorizontalOptions="Center"
@@ -40,7 +39,8 @@
             BackgroundColor="Transparent"
             HorizontalOptions="Center">
 
-            <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+            <VerticalStackLayout
+             Spacing="10" HorizontalOptions="Center">
                 <Label
             Text="Förnamn"
             FontSize="Medium"

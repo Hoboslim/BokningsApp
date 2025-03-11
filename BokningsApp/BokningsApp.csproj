@@ -76,6 +76,9 @@
 	  <MauiXaml Update="Views\Admin\AddRoom.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Admin\AddRoomType.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Admin\AdminLoggedIn.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
