@@ -24,9 +24,7 @@ public partial class CalendarPage : ContentPage
         DateTime firstDay = new DateTime(date.Year, date.Month, 1);
         int daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
         
-        int startDayOfWeek = (int)firstDay.DayOfWeek;
-        if (startDayOfWeek == 0) startDayOfWeek = 7;
-        startDayOfWeek -= 1;
+       int startDayOfWeek = ((int)firstDay.DayOfWeek + 6 ) % 7;
 
         for (int i = 0; i < startDayOfWeek; i++)
         {

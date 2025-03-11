@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BokningsApp.RegisterPage"
              Title="RegisterPage">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+
 
         <Image 
                 WidthRequest="350"
@@ -11,7 +13,8 @@
                 VerticalOptions="Center"
                 Aspect="AspectFit"
                Source="createaccount.png"
-               ></Image>
+               >
+        </Image>
         <Grid
             RowDefinitions="100,*, *"
             ColumnDefinitions="100,750, *"
@@ -91,7 +94,7 @@
                     Placeholder="Password"
                     WidthRequest="250"
                     ></Entry>
-                    
+
 
                 <Button
             Text="Skapa Userkonto"
@@ -104,7 +107,7 @@
             Margin="15"
             Clicked="OnCreatedAccount"     
             ></Button>
-                
+
                 <Button
             Text="Skapa Adminkonto"
             FontSize="Small"
@@ -119,5 +122,6 @@
 
             </VerticalStackLayout>
         </Border>
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

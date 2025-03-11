@@ -5,13 +5,13 @@
         <Label Text="{Binding SelectedMonth}" FontSize="24" HorizontalOptions="Center"/>
         <Grid ColumnDefinitions="*,*,*,*,*,*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
             <!-- Weekday Headers -->
-            <Label Grid.Column="0" Text="Sun" FontSize="18" HorizontalOptions="Center"/>
-            <Label Grid.Column="1" Text="Mon" FontSize="18" HorizontalOptions="Center"/>
-            <Label Grid.Column="2" Text="Tue" FontSize="18" HorizontalOptions="Center"/>
-            <Label Grid.Column="3" Text="Wed" FontSize="18" HorizontalOptions="Center"/>
-            <Label Grid.Column="4" Text="Thu" FontSize="18" HorizontalOptions="Center"/>
-            <Label Grid.Column="5" Text="Fri" FontSize="18" HorizontalOptions="Center"/>
-            <Label Grid.Column="6" Text="Sat" FontSize="18" HorizontalOptions="Center"/>
+            <Label Grid.Column="0" Text="Mon" FontSize="18" HorizontalOptions="Center"/>
+            <Label Grid.Column="1" Text="Tue" FontSize="18" HorizontalOptions="Center"/>
+            <Label Grid.Column="2" Text="Wed" FontSize="18" HorizontalOptions="Center"/>
+            <Label Grid.Column="3" Text="Thu" FontSize="18" HorizontalOptions="Center"/>
+            <Label Grid.Column="4" Text="Fri" FontSize="18" HorizontalOptions="Center"/>
+            <Label Grid.Column="5" Text="Sat" FontSize="18" HorizontalOptions="Center"/>
+            <Label Grid.Column="6" Text="Sun" FontSize="18" HorizontalOptions="Center"/>
 
             <!-- Days of the month will be populated dynamically -->
             <CollectionView ItemsSource="{Binding Days}" Grid.Row="1" Grid.ColumnSpan="7">
