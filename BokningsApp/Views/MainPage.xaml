@@ -12,23 +12,17 @@
                 Aspect="AspectFit"
                Source="output.png"
                ></Image>
-        <Grid
-            RowDefinitions="100,*, *"
-            ColumnDefinitions="100,590, *"
-            HeightRequest="50"
-            Padding="10"
-            RowSpacing="10"
-            ColumnSpacing="10"
-            >
-            <Label
+
+        <Label
                 Text="Välkommen till bokningsappen för grupprum"
                 FontSize="Medium"
                 Grid.Row="0"
+                HorizontalOptions="Center"
                 Grid.Column="2"
-                >
-            </Label>
-            
-        </Grid>
+                
+            />
+
+
         <Border 
             Padding="20"
             Stroke="White"
