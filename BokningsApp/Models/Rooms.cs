@@ -15,5 +15,6 @@ namespace BokningsApp.Models
         public int Slots { get; set; }
         public string RoomType { get; set; }
         public List<ObjectId> Bookings { get; set; }
+      
     }
 }

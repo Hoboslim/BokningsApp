@@ -17,6 +17,7 @@ namespace BokningsApp.ViewModels
     {
         private ObservableCollection<RoomTypes> _roomTypes;
         private RoomTypes _selectedRoomTypes;
+        
 
         public ObservableCollection<RoomTypes> RoomTypes
         {
