@@ -20,7 +20,7 @@
             <Label Grid.Column="6" Text="Sun" FontSize="18" HorizontalOptions="Center"/>
 
             <!-- Days of the month will be populated dynamically -->
-            <CollectionView ItemsSource="{Binding Days}" Grid.Row="1" Grid.ColumnSpan="7">
+            <CollectionView ItemsSource="{Binding Days}" Grid.Row="1" Grid.ColumnSpan="7" SelectionMode="Single" SelectionChanged="OnDateSelected">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="7"/>
                 </CollectionView.ItemsLayout>
@@ -35,14 +35,7 @@
                            HorizontalOptions="Center" 
                            VerticalOptions="Start"/>
 
-                                <!-- Room selection Picker -->
-                                <Picker Title="Pick room" 
-                            ItemsSource="{Binding AvailableRooms}" 
-                            SelectedItem="{Binding SelectedRoom, Mode=TwoWay}" 
-                            IsVisible="{Binding Day, Converter={StaticResource EmptyStringToBoolConverter}}"
-                                        WidthRequest="250"
-                            HorizontalOptions="Fill" 
-                            Margin="5"/>
+                               
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
