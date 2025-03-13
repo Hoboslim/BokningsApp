@@ -9,7 +9,7 @@ namespace BokningsApp.Admin;
 
 public partial class EditRoomDetails : ContentPage
 {
-    public PickRoomViewModel ViewModel { get; set; }
+    public EditRoomViewModel ViewModel { get; set; }
     public Models.Rooms Room { get; set; }
 
     public EditRoomDetails(Models.Rooms room)
@@ -17,7 +17,7 @@ public partial class EditRoomDetails : ContentPage
 
         InitializeComponent();
         Room = room;
-        ViewModel = new PickRoomViewModel();
+        ViewModel = new EditRoomViewModel();
         BindingContext = ViewModel;
 
         if (room != null)

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BokningsApp.ViewModels
 {
-    internal class EditRoomViewModel : INotifyPropertyChanged
+    public class EditRoomViewModel : INotifyPropertyChanged
     {
 
 
@@ -53,7 +53,7 @@ namespace BokningsApp.ViewModels
             LoadRoomTypesAsync();
         }
 
-        private async void LoadRoomTypesAsync()
+        public async void LoadRoomTypesAsync()
         {
             var roomTypesCollection = DB.GetRoomTypesCollection();
 
@@ -67,18 +67,6 @@ namespace BokningsApp.ViewModels
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public async Task SaveRoomChangesAsync()
-        {
-            var roomCollection = DB.GetRoomCollection();
-            var filter = Builders<Rooms>.Filter.Eq(r => r.Id, Room.Id);
-            var update = Builders<Rooms>.Update
-                .Set(r => r.RoomName, Room.RoomName)
-                .Set(r => r.RoomType, Room.RoomType)
-                .Set(r => r.RoomDescription, Room.RoomDescription)
-                .Set(r => r.Slots, Room.Slots);
-            await roomCollection.UpdateOneAsync(filter, update);
         }
     }
 }

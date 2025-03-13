@@ -2,38 +2,47 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BokningsApp.Admin.BookingHistory"
-             Title="BookingHistory">
+             Title="Bokningshistorik">
     <ScrollView>
-    <VerticalStackLayout>
-        <Image 
-       WidthRequest="200"
-       HorizontalOptions="Center"
-       VerticalOptions="Center"
-       Aspect="AspectFit"
-       Source="output.png" />
+        <VerticalStackLayout Padding="20">
 
-        <Label
-       Text="Här ser du bokningshistorik."
-       FontSize="Medium"
-       HorizontalOptions="Center" />
+            <Image 
+                WidthRequest="200"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Aspect="AspectFit"
+                Source="output.png" />
 
-        <Border 
-        Padding="20"
-        Stroke="White"
-        StrokeThickness="2"
-        StrokeShape="RoundRectangle"
-        BackgroundColor="Transparent"
-        HorizontalOptions="Center">
+            <Label
+                Text="Här ser du bokningshistorik."
+                FontSize="Medium"
+                HorizontalOptions="Center" />
 
-            <VerticalStackLayout
-            Spacing="10" HorizontalOptions="Center">
-                <Label
-            Text="Här ska info va"
-            FontSize="Medium"
-            HorizontalOptions="Center"
-                />
-            </VerticalStackLayout>
-        </Border>
-    </VerticalStackLayout>
+            <Border 
+                Padding="20"
+                Stroke="White"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Center"
+                WidthRequest="300">
+
+                <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Label
+                        Text="Bokningshistorik:"
+                        FontSize="Medium"
+                        HorizontalOptions="Center" />
+
+                    <ListView ItemsSource="{Binding OldBookings}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding RoomId}" Detail="{Binding EndTime}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

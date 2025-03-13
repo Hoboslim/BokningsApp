@@ -43,14 +43,10 @@ public partial class EditRooms : ContentPage
         }
     }
 
-    private async void OnEditRoomClicked(object sender, EventArgs e)
+    private async void OnEditRoomPicked(object sender, EventArgs e)
     {
         var room = await DB.GetRoomsCollection().Find(r => r.RoomName == roomPicker.SelectedItem.ToString()).FirstOrDefaultAsync();
         await Navigation.PushAsync(new EditRoomDetails(room));
     }
 
-    private void OnOldBookings(object sender, EventArgs e)
-    {
-
-    }
 }

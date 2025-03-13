@@ -43,7 +43,7 @@
              Text="Antal platser"
              FontSize="Medium"
              HorizontalOptions="Center"  
-/>
+                />
         <Entry
              x:Name="SlotsEntry"
              BackgroundColor="AliceBlue"

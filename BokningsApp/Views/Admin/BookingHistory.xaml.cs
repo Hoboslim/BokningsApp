@@ -1,9 +1,23 @@
-namespace BokningsApp.Admin;
+using BokningsApp.ViewModels;
+using System.Threading.Tasks;
 
-public partial class BookingHistory : ContentPage
+namespace BokningsApp.Admin
 {
-	public BookingHistory()
-	{
-		InitializeComponent();
-	}
+    public partial class BookingHistory : ContentPage
+    {
+        private BookingHistoryViewModel _viewModel;
+
+        public BookingHistory()
+        {
+            InitializeComponent();
+            _viewModel = new BookingHistoryViewModel();
+            _ = LoadHistoryAsync();
+        }
+
+        private async Task LoadHistoryAsync()
+        {
+            await Task.Run(() => _viewModel.LoadOldBookings());
+            BindingContext = _viewModel;
+        }
+    }
 }
