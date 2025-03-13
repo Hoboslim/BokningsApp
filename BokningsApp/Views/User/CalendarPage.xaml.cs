@@ -1,3 +1,7 @@
+using BokningsApp.Models;
+using BokningsApp.ViewModels;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System.Collections.ObjectModel;
 using System.Globalization;
 
@@ -7,15 +11,19 @@ public partial class CalendarPage : ContentPage
 {
 
     public ObservableCollection<CalendarDay> Days { get; set; } = new();
+
     public string SelectedMonth { get; set; }
 
     private DateTime _currentMonth;
+    
     public CalendarPage()
     {
         InitializeComponent();
         BindingContext = this;
         _currentMonth = DateTime.Now;
         GenerateCalendar(_currentMonth);
+
+
     }
 
     void GenerateCalendar(DateTime date)
@@ -43,17 +51,21 @@ public partial class CalendarPage : ContentPage
 
     }
 
-    public class CalendarDay
-    {
-        public string? Day { get; set; }
 
-    }
+    //private async void OnDateSelected(object sender, SelectionChangedEventArgs e)
+    //{
+    //   if(e.CurrentSelection.Count > 0)
+    //    {
+    //        var selectedDay = e.CurrentSelection[0] as CalendarDay;
 
+    //        if(selectedDay != null && !string.IsNullOrEmpty(selectedDay.Day))
+    //        {
+    //            string selectedDate = $"{_currentMonth}-{_currentMonth:D2}-{selectedDay.Day}";
+    //            await Navigation.PushAsync(new PickRoom()
+    //        }
+    //    }
 
-    private async void OnDateSelected(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new PickRoom());
-    }
+    //}
 
     private void OnPreviousMonthClicked(object sender, EventArgs e)
     {
@@ -66,5 +78,22 @@ public partial class CalendarPage : ContentPage
     {
         _currentMonth = _currentMonth.AddMonths(1);
         GenerateCalendar(_currentMonth);
+    }
+
+    public class CalendarDay
+    {
+        public string? Day { get; set; }
+
+    }
+
+    private async void OnDateSelected(object sender, SelectionChangedEventArgs e)
+    {
+        if (e.CurrentSelection.Count > 0)
+        {
+            var selectedDay = e.CurrentSelection[0] as CalendarDay;
+            DateTime selectedDate = new DateTime(_currentMonth.Year, _currentMonth.Month, int.Parse(selectedDay.Day));
+
+            await Navigation.PushAsync(new PickRoom(selectedDate.ToString("yyyy-MM-dd")));
+        }
     }
 }

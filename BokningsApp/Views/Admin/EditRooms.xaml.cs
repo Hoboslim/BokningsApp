@@ -22,7 +22,7 @@ public partial class EditRooms : ContentPage
         LoadRoomsFromDB();
 
     }
-    private async void LoadRoomsFromDB()
+    public async void LoadRoomsFromDB()
     {
         var roomCollection = DB.GetRoomsCollection();
         var rooms = await roomCollection.Find(FilterDefinition<Models.Rooms>.Empty).ToListAsync();

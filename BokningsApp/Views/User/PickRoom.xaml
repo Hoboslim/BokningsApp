@@ -3,10 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BokningsApp.User.PickRoom"
              Title="PickRoom">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <!-- Label for the selected date -->
+            <Label Text="{Binding SelectedDate}" FontSize="Large" HorizontalOptions="Center" />
+
+            <!-- Room Type Picker -->
+            <Picker Title="Select Room Type"
+                    ItemsSource="{Binding RoomTypes}"
+                    SelectedItem="{Binding SelectedRoomType}">
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="RoomType"/>
+                </Picker.ItemDisplayBinding>
+            </Picker>
+
+            <!-- Room Picker (based on selected room type) -->
+            <Picker Title="Select Room"
+                    ItemsSource="{Binding AvailableRooms}"
+                    SelectedItem="{Binding SelectedRoom}">
+                <Picker.ItemDisplayBinding>
+                    <Binding Path="RoomName"/>
+                </Picker.ItemDisplayBinding>
+            </Picker>
+
+            <!-- Time Picker -->
+            <TimePicker Format="HH:mm" 
+                        Time="{Binding SelectedTime}" />
+
+            <!-- Book Button -->
+            <Button Text="Book Room" Clicked="OnBookClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
