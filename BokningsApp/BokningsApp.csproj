@@ -94,7 +94,7 @@
 	  <MauiXaml Update="Views\Admin\EditRooms.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CreatedAdminPage.xaml">
+	  <MauiXaml Update="Views\FrontPages\CreatedAdminPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\User\Calendar.xaml">
