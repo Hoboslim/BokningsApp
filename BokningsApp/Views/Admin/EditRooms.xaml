@@ -38,21 +38,10 @@
          
          x:Name="roomPicker"
          Title="Välj ett rum"
-         SelectedIndexChanged="OnEditRoomClicked"
+         SelectedIndexChanged="OnEditRoomPicked"
          WidthRequest="250"
          Margin="0,10,0,10"
         />
-            <!--<Button
-        Text="Redigera rum"
-        FontSize="Medium"
-        WidthRequest="250"
-        BackgroundColor="Black"
-        TextColor="White"
-        BorderWidth="5"
-        BorderColor="AliceBlue"
-        Margin="15"
-        Clicked="OnOldBookings"
-        />-->
-        
+   
     </VerticalStackLayout>
 </ContentPage>

@@ -2,36 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BokningsApp.Admin.BookedRooms"
-             Title="BookedRooms">
-    <VerticalStackLayout>
+             Title="Bokade Rum">
+    <VerticalStackLayout Padding="20">
+
         <Image 
-       WidthRequest="200"
-       HorizontalOptions="Center"
-       VerticalOptions="Center"
-       Aspect="AspectFit"
-       Source="output.png" />
+            WidthRequest="200"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Aspect="AspectFit"
+            Source="output.png" />
 
         <Label
-       Text="Här ser du se bokade rum."
-       FontSize="Medium"
-       HorizontalOptions="Center" />
+            Text="Här ser du bokade rum."
+            FontSize="Medium"
+            HorizontalOptions="Center" />
 
         <Border 
-        Padding="20"
-        Stroke="White"
-        StrokeThickness="2"
-        StrokeShape="RoundRectangle"
-        BackgroundColor="Transparent"
-        HorizontalOptions="Center">
-
-            <VerticalStackLayout
-            Spacing="10" HorizontalOptions="Center">
-                <Label
-            Text="Här ska info va"
-            FontSize="Medium"
+            Padding="20"
+            Stroke="White"
+            StrokeThickness="2"
+            StrokeShape="RoundRectangle"
+            BackgroundColor="Transparent"
             HorizontalOptions="Center"
-                />
+            WidthRequest="300">
+
+            <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Label
+                    Text="Bokade rum:"
+                    FontSize="Medium"
+                    HorizontalOptions="Center" />
+
+                <ListView ItemsSource="{Binding BookedRooms}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding RoomName}" Detail="{Binding RoomType}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </VerticalStackLayout>
         </Border>
+
     </VerticalStackLayout>
 </ContentPage>
