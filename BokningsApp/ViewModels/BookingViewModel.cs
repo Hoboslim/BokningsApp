@@ -20,7 +20,8 @@ namespace BokningsApp.ViewModels
         private string _selectedDate;
         private RoomTypes _SelectedRoomTypes;
         private Rooms _selectedRooms;
-        private TimeSpan _selectedTime;
+        private TimeSpan _startTime;
+        private TimeSpan _endTime;
 
         private TimeSpan _minimumTime = new TimeSpan(9, 0, 0);
         private TimeSpan _maximumTime = new TimeSpan(17, 0, 0);
@@ -59,25 +60,26 @@ namespace BokningsApp.ViewModels
             }
         }
 
-        public TimeSpan SelectedTime
+        public TimeSpan StartTime
         {
-            get => _selectedTime;
+            get => _startTime;
             set
             {
-                if (value < _minimumTime)
-                {
-                    _selectedTime = _minimumTime;
-                }
-                else if (value > _maximumTime)
-                {
-                    _selectedTime = _maximumTime;
-                }
-                else
-                {
-                    _selectedTime = value;
-                }
-                OnPropertyChanged(nameof(SelectedTime));
+                _startTime = value;
+                OnPropertyChanged(nameof(StartTime));
+                
             }
+                
+        } public TimeSpan EndTime
+        {
+            get => _endTime;
+            set
+            {
+                _endTime = value;
+                OnPropertyChanged(nameof(EndTime));
+                
+            }
+                
         }
 
         public BookingViewModel(string selectedDate)

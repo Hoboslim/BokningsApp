@@ -42,9 +42,11 @@ namespace BokningsApp
                     await DisplayAlert("Login Failed", "Invalid email or password", "OK");
                     return;
                 }
+                
                 if (user != null && user.Password == password)
                 {
 
+                    await SecureStorage.SetAsync("user_id", user.Id.ToString());
 
                     if (user.Role == "Admin")
                     {

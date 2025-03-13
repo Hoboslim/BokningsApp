@@ -11,6 +11,7 @@
 
             <!-- Room Type Picker -->
             <Picker Title="Select Room Type"
+                    WidthRequest="250"
                     ItemsSource="{Binding RoomTypes}"
                     SelectedItem="{Binding SelectedRoomType}">
                 <Picker.ItemDisplayBinding>
@@ -20,6 +21,7 @@
 
             <!-- Room Picker (based on selected room type) -->
             <Picker Title="Select Room"
+                    WidthRequest="250"
                     ItemsSource="{Binding AvailableRooms}"
                     SelectedItem="{Binding SelectedRoom}">
                 <Picker.ItemDisplayBinding>
@@ -28,11 +30,21 @@
             </Picker>
 
             <!-- Time Picker -->
-            <TimePicker Format="HH:mm" 
-                        Time="{Binding SelectedTime}" />
-
+            <Label
+                Text="Välj tid"
+                HorizontalOptions="Center"
+                ></Label>
+            <TimePicker Format="HH" 
+                        HorizontalOptions="Center"
+                        Time="{Binding StartTime}" />
+            <TimePicker Format="HH"
+                        HorizontalOptions="Center"
+                           Time="{Binding EndTime}"
+                           ></TimePicker>
             <!-- Book Button -->
-            <Button Text="Book Room" Clicked="OnBookClicked"/>
+            
+            <Button Text="Book Room" Clicked="OnBookClicked"
+                    WidthRequest="250"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
