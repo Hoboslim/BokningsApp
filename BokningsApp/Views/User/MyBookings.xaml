@@ -15,5 +15,12 @@
           Text="Här ser du dina bokade rum."
           FontSize="Medium"
           HorizontalOptions="Center" />
+        <ListView ItemsSource="{Binding UserBookings}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding RoomId}" Detail="{Binding StartTime}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </VerticalStackLayout>
 </ContentPage>
