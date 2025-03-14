@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 using BokningsApp.Models;
 using BokningsApp.Data;
 using MongoDB.Driver;
-using MongoDB.Bson; 
+using MongoDB.Bson;
+using System.Windows.Input;
 
 namespace BokningsApp.ViewModels
 {
@@ -12,10 +13,16 @@ namespace BokningsApp.ViewModels
         public ObservableCollection<Bookings> OldBookings { get; set; } = new();
         public ObservableCollection<Rooms> BookedRooms { get; set; } = new();
         public ObservableCollection<Bookings> UserBookings { get; set; } = new();
-        public BookingHistoryViewModel() { }
+        
+        public BookingHistoryViewModel() 
+        {
+            
+        }
+        
 
         TimeZoneInfo swedenTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
 
+       
         public async Task LoadOldBookings()
         {
             
@@ -84,5 +91,7 @@ namespace BokningsApp.ViewModels
                 }
             });
         }
+
+       
     }
 }
