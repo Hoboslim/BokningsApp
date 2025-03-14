@@ -38,7 +38,12 @@
                 <TimePicker Format="HH"
                             HorizontalOptions="Center"
                             Time="{Binding EndTime}"/>
-
+                <Label 
+                    Text="Boka tid mellan 07:00 - 17:00"
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    ></Label>
+                    
                 <Button Text="Book Room" Clicked="OnBookClicked"
                         WidthRequest="250"/>
             </StackLayout>
