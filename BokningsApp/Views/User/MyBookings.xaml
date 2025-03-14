@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BokningsApp.Views.User.MyBookings"
              Title="MyBookings">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
         <Image 
           WidthRequest="200"
           HorizontalOptions="Center"
@@ -26,11 +27,17 @@
                                    HorizontalOptions="Center"/>
                             <Label Text="{Binding EndTime, StringFormat='Sluttid: {0:yyyy-MM-dd HH:mm}'}"
                                    HorizontalOptions="Center"/>
-                             
+                            <Button 
+                                Text="Ta bort bokning"
+                                Clicked="OnRemoveBookingClicked"
+                                CommandParameter="{Binding .}"
+                                HorizontalOptions="Center"
+                                ></Button>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

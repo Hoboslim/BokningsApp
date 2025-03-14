@@ -45,14 +45,36 @@ public partial class PickRoom : ContentPage
             startDateTime = DateTime.SpecifyKind(startDateTime, DateTimeKind.Unspecified);
             endDateTime = DateTime.SpecifyKind(endDateTime, DateTimeKind.Unspecified);
 
-            var userIdString = await SecureStorage.GetAsync("user_id");
-            var userEmail = await SecureStorage.GetAsync("user_email");
+			var userIdString = await SecureStorage.GetAsync("user_id");
+			var userEmail = await SecureStorage.GetAsync("user_email");
 
-            if (string.IsNullOrEmpty(userIdString))
-            {
-                await DisplayAlert("Error", "Ingen användare inloggad", "OK");
-                return;
-            }
+			TimeSpan minTime = new TimeSpan(7, 0, 0);
+			TimeSpan maxTime = new TimeSpan(17, 0, 0);
+
+			if (selectedDate.Date < DateTime.Today)
+			{
+				await DisplayAlert("Felaktigt datum", "Du kan inte boka för ett datum som passerat", "OK");
+				return;
+			}
+
+			if (startDateTime.TimeOfDay < minTime || startDateTime.TimeOfDay > maxTime)
+			{
+				await DisplayAlert("Felaktig tid", "Välj en tid mellan 07:00 och 17:00", "OK");
+				return;
+			}
+
+			if (endDateTime.TimeOfDay < minTime || startDateTime.TimeOfDay > maxTime)
+			{
+				await DisplayAlert("Felaktid tid", "Välj en tid mellan 07:00 och 17:00", "OK");
+				return;
+			}
+
+
+			if (string.IsNullOrEmpty(userIdString))
+			{
+				await DisplayAlert("Error", "Ingen användare inloggad", "OK");
+				return;
+			}
 
             var userId = new ObjectId(userIdString);
             var roomId = _viewModel.BookingVM.SelectedRoom.Id;

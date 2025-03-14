@@ -40,8 +40,13 @@
                                      HorizontalOptions="Center"/>
                                     <Label Text="{Binding EndTime, StringFormat='Sluttid: {0:yyyy-MM-dd HH:mm}'}"
                                      HorizontalOptions="Center"/>
-
-                                </StackLayout>
+                                        <Button 
+                                         Text="Ta bort bokning"
+                                         Clicked="OnRemoveBookingClicked"
+                                         CommandParameter="{Binding .}"
+                                         HorizontalOptions="Center"
+                                         ></Button>     
+                                    </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

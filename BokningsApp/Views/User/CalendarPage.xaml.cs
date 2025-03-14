@@ -52,21 +52,6 @@ public partial class CalendarPage : ContentPage
     }
 
 
-    //private async void OnDateSelected(object sender, SelectionChangedEventArgs e)
-    //{
-    //   if(e.CurrentSelection.Count > 0)
-    //    {
-    //        var selectedDay = e.CurrentSelection[0] as CalendarDay;
-
-    //        if(selectedDay != null && !string.IsNullOrEmpty(selectedDay.Day))
-    //        {
-    //            string selectedDate = $"{_currentMonth}-{_currentMonth:D2}-{selectedDay.Day}";
-    //            await Navigation.PushAsync(new PickRoom()
-    //        }
-    //    }
-
-    //}
-
     private void OnPreviousMonthClicked(object sender, EventArgs e)
     {
         _currentMonth = _currentMonth.AddMonths(-1);
