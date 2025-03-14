@@ -37,6 +37,7 @@
 
                 <TimePicker Format="HH:mm"
                             Time="{Binding BookingVM.EndTime}" />
+                <Label Text="Boka rumme mellan 07:00 och 17:00" />
 
                 <Button Text="Boka rum" Clicked="OnBookClicked"
                         WidthRequest="250" BackgroundColor="#4CAF50"
