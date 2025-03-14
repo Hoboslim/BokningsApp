@@ -2,71 +2,66 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BokningsApp.User.PickRoom"
-             Title="PickRoom">
+             Title="Välj rum">
 
     <ContentPage.Content>
         <Grid Padding="10"
               RowDefinitions="Auto,*,Auto">
-            <!-- Auto = UI, * = Spacer, Auto = Väder längst ner -->
+            <StackLayout Grid.Row="0" Spacing="15" HorizontalOptions="Center">
 
-            <!-- UI för rumsbokning -->
-            <StackLayout Grid.Row="0">
-                <Label Text="{Binding SelectedDate}" FontSize="Large" HorizontalOptions="Center" />
+                <Label Text="{Binding BookingVM.SelectedDate}" FontSize="Large" 
+                       HorizontalOptions="Center" TextColor="Black"/>
 
-                <Picker Title="Select Room Type"
+                <Picker Title="Välj rumstyp"
                         WidthRequest="250"
-                        ItemsSource="{Binding RoomTypes}"
-                        SelectedItem="{Binding SelectedRoomType}">
+                        ItemsSource="{Binding BookingVM.RoomTypes}"
+                        SelectedItem="{Binding BookingVM.SelectedRoomType}">
                     <Picker.ItemDisplayBinding>
                         <Binding Path="RoomType"/>
                     </Picker.ItemDisplayBinding>
                 </Picker>
 
-                <Picker Title="Select Room"
+                <Picker Title="Välj rum"
                         WidthRequest="250"
-                        ItemsSource="{Binding AvailableRooms}"
-                        SelectedItem="{Binding SelectedRoom}">
+                        ItemsSource="{Binding BookingVM.AvailableRooms}"
+                        SelectedItem="{Binding BookingVM.SelectedRoom}">
                     <Picker.ItemDisplayBinding>
                         <Binding Path="RoomName"/>
                     </Picker.ItemDisplayBinding>
                 </Picker>
 
-                <Label Text="Välj tid" HorizontalOptions="Center"/>
-                <TimePicker Format="HH" 
-                            HorizontalOptions="Center"
-                            Time="{Binding StartTime}" />
-                <TimePicker Format="HH"
-                            HorizontalOptions="Center"
-                            Time="{Binding EndTime}"/>
+                <Label Text="Välj tid" HorizontalOptions="Center" FontSize="Medium"/>
 
-                <Button Text="Book Room" Clicked="OnBookClicked"
-                        WidthRequest="250"/>
+                <TimePicker Format="HH:mm"
+                            Time="{Binding BookingVM.StartTime}" />
+
+                <TimePicker Format="HH:mm"
+                            Time="{Binding BookingVM.EndTime}" />
+
+                <Button Text="Boka rum" Clicked="OnBookClicked"
+                        WidthRequest="250" BackgroundColor="#4CAF50"
+                        TextColor="White"/>
             </StackLayout>
 
-            <!-- Spacer (för att trycka ner väderinformationen) -->
-            <BoxView Grid.Row="1" HeightRequest="10" BackgroundColor="Transparent"/>
-            <!-- Minskat höjden -->
-
-            <!-- Väderinfo (längst ner) -->
-            <Frame Grid.Row="2" Padding="10" BackgroundColor="Transparent" CornerRadius="10"
-       BorderColor="Gray" WidthRequest="250"
-       VerticalOptions="End" HorizontalOptions="Center">
-                <StackLayout HorizontalOptions="Center">
+            <Border Grid.Row="2" Padding="10" BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle" Stroke="Gray" WidthRequest="250"
+                    VerticalOptions="End" HorizontalOptions="Center">
+                <StackLayout HorizontalOptions="Center" Spacing="5">
                     <Label Text="Väderinformation" FontSize="20" FontAttributes="Bold" 
-               HorizontalOptions="Center" TextColor="Black"/>
-                    <Label Text="{Binding WeatherVM.Weather.Temp, StringFormat='Temperatur: {0}°C'}"
-               FontSize="18"
-               TextColor="Black"
-               HorizontalOptions="Center"/>
-                    <Label Text="{Binding WeatherVM.Weather.Condition, StringFormat='Väder: {0}'}"
-               FontSize="18"
-               TextColor="Gray"
-               HorizontalOptions="Center"/>
-                    <!-- ✅ Testa att lägga en standardtext -->
-                    <Label Text="(Om du ser denna text, fungerar UI!)" FontSize="14" TextColor="Red"/>
-                </StackLayout>
-            </Frame>
+                           HorizontalOptions="Center" TextColor="White"/>
 
+                    <Label Text="{Binding WeatherVM.Weather.Temp, StringFormat='Temperatur: {0}°C'}"
+                           FontSize="18" TextColor="White"
+                           HorizontalOptions="Center"/>
+
+                    <Label Text="{Binding WeatherVM.Weather.Condition, StringFormat='Väder: {0}'}"
+                           FontSize="18" TextColor="White"
+                           HorizontalOptions="Center"/>
+
+                    <Label Text="Vädret i Stockholm"
+                           FontSize="16" HorizontalOptions="Center" TextColor="Gray"/>
+                </StackLayout>
+            </Border>
 
         </Grid>
     </ContentPage.Content>

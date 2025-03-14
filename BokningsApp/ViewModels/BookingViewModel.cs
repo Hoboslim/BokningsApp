@@ -92,7 +92,7 @@ namespace BokningsApp.ViewModels
             LoadRoomTypes();
         }
 
-        private async void LoadRoomTypes()
+        public async Task LoadRoomTypes()
         {
             var roomTypesCollection = DB.GetRoomTypesCollection();
             var roomTypes = await roomTypesCollection.Find(FilterDefinition<RoomTypes>.Empty).ToListAsync();

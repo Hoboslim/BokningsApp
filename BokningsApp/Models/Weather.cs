@@ -1,22 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace BokningsApp.Models
 {
-    internal class Weather
+    public class Weather
     {
-            public float wind_speed { get; set; }
-            public int wind_degrees { get; set; }
-            public int temp { get; set; }
-            public int humidity { get; set; }
-            public int sunset { get; set; }
-            public int min_temp { get; set; }
-            public int cloud_pct { get; set; }
-            public int feels_like { get; set; }
-            public int sunrise { get; set; }
-            public int max_temp { get; set; }
+        [JsonPropertyName("wind_speed")]
+        public float WindSpeed { get; set; }
+
+        [JsonPropertyName("wind_degrees")]
+        public int WindDegrees { get; set; }
+
+        [JsonPropertyName("temp")]
+        public int Temp { get; set; }
+
+        [JsonPropertyName("humidity")]
+        public int Humidity { get; set; }
+
+        [JsonPropertyName("sunset")]
+        public int Sunset { get; set; }
+
+        [JsonPropertyName("min_temp")]
+        public int MinTemp { get; set; }
+
+        [JsonPropertyName("cloud_pct")]
+        public int CloudPct { get; set; }
+
+        [JsonPropertyName("feels_like")]
+        public int FeelsLike { get; set; }
+
+        [JsonPropertyName("sunrise")]
+        public int Sunrise { get; set; }
+
+        [JsonPropertyName("max_temp")]
+        public int MaxTemp { get; set; }
+
+        public string Condition
+        {
+            get
+            {
+                if (CloudPct < 20) return "Soligt";
+                if (CloudPct < 50) return "Delvis molnigt";
+                if (CloudPct < 80) return "Molnigt";
+                return "Mulet";
+            }
+        }
     }
 }

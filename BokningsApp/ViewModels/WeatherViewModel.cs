@@ -2,19 +2,20 @@
 using System.ComponentModel;
 using System.Net.Http;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.Diagnostics;
+using BokningsApp.Models;
 
 namespace BokningsApp.ViewModels
 {
-    internal class WeatherViewModel : INotifyPropertyChanged
+    public class WeatherViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private Models.Weather _weather;
-        public Models.Weather Weather
+        private Weather _weather;
+        public Weather Weather
         {
-            get { return _weather; }
+            get => _weather;
             set
             {
                 _weather = value;
@@ -27,7 +28,6 @@ namespace BokningsApp.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        // ✅ Hämta väderdata
         public async Task GetWeatherAsync(double latitude, double longitude)
         {
             try
@@ -36,29 +36,27 @@ namespace BokningsApp.ViewModels
                 client.BaseAddress = new Uri("https://api.api-ninjas.com/");
                 client.DefaultRequestHeaders.Add("X-Api-Key", "jrAKIKlyeSQaWmsl7/tnaw==oGypKlV0gz1Foi1S");
 
-                Debug.WriteLine("🔍 Anropar API för väderdata..."); // ✅ Debug-logg
-
                 HttpResponseMessage response = await client.GetAsync($"v1/weather?lat={latitude}&lon={longitude}");
 
                 if (response.IsSuccessStatusCode)
                 {
                     string responseString = await response.Content.ReadAsStringAsync();
-                    Weather = JsonSerializer.Deserialize<Models.Weather>(responseString, new JsonSerializerOptions
+
+                    var weatherData = JsonSerializer.Deserialize<Weather>(responseString, new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
                     });
 
-                    Debug.WriteLine($"✅ Väderdata hämtad: Temperatur: {Weather?.temp}°C");
-                    OnPropertyChanged(nameof(Weather)); // 🔄 Uppdaterar UI
-                }
-                else
-                {
-                    Debug.WriteLine($"❌ Fel vid API-anrop: {response.StatusCode}");
+                    if (weatherData != null)
+                    {
+                        Weather = weatherData;
+                        OnPropertyChanged(nameof(Weather));
+                    }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Debug.WriteLine($"🚨 Fel vid hämtning av väderdata: {ex.Message}");
+              
             }
         }
     }
