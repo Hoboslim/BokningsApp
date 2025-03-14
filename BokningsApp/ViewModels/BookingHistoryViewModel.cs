@@ -36,31 +36,25 @@ namespace BokningsApp.ViewModels
             });
         }
 
-        //public async Task LoadBookedRooms()
-        //{
-        //    var userIdString = await SecureStorage.GetAsync("user_id");
-        //    if (string.IsNullOrEmpty(userIdString))
-        //    {
-        //        await Application.Current.MainPage.DisplayAlert("Fel", "Ingen användare inloggad", "OK");
-        //        return;
-        //    }
+        public async Task LoadBookedRooms()
+        {
+     
+              var bookings = await DB.GetBookingCollection()
+                .Find(b => b.EndTime >= System.DateTime.UtcNow)
+                .ToListAsync();
 
-        //    var bookedRooms = await DB.GetRoomCollection()
-        //        .Find(r => r.Bookings.Count > 0)
-        //        .ToListAsync();
-        //    BookedRooms = new ObservableCollection<Bookings>(bookedRooms);
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                UserBookings.Clear();
+                foreach (var booking in bookings)
+                {
+                    booking.StartTime = TimeZoneInfo.ConvertTimeFromUtc(booking.StartTime, swedenTimeZone);
+                    booking.EndTime = TimeZoneInfo.ConvertTimeFromUtc(booking.EndTime, swedenTimeZone);
 
-        //    {
-        //        UserBookings.Clear();
-        //        foreach (var booking in bookedRooms)
-        //        {
-        //            booking.StartTime = TimeZoneInfo.ConvertTimeFromUtc(booking.StartTime, swedenTimeZone);
-        //            booking.EndTime = TimeZoneInfo.ConvertTimeFromUtc(booking.EndTime, swedenTimeZone);
-
-        //            UserBookings.Add(booking);
-        //        }
-        //    });
-        //}
+                    UserBookings.Add(booking);
+                }
+            });
+        }
 
         public async Task LoadUserBookings()
         {

@@ -8,12 +8,19 @@ namespace BokningsApp.User;
 public partial class PickRoom : ContentPage
 {
 	private BookingViewModel _ViewModel;
-	public PickRoom(string selectedDate)
+    private WeatherViewModel WeatherWM { get; }
+    public PickRoom(string selectedDate)
 	{
 		InitializeComponent();
 		_ViewModel = new BookingViewModel(selectedDate);
 		BindingContext = _ViewModel;
-	}
+        WeatherWM = new WeatherViewModel();
+        _ = GetWeather();
+    }
+	private async Task GetWeather()
+    {
+        await WeatherWM.GetWeatherAsync(59.3293, 18.0686);
+    }
 
     private async void OnBookClicked(object sender, EventArgs e)
     {

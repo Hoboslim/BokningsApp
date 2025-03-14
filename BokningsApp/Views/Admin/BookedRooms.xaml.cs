@@ -17,7 +17,7 @@ namespace BokningsApp.Admin
 
         private async void LoadRoomsAsync()
         {
-            //await _viewModel.LoadBookedRooms();
+            await _viewModel.LoadBookedRooms();
         }
     }
 }

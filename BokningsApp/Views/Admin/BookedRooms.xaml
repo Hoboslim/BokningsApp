@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BokningsApp.Admin.BookedRooms"
              Title="Bokade Rum">
+    <ScrollView> 
     <VerticalStackLayout Padding="20">
 
         <Image 
@@ -32,8 +33,9 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Padding="10">
-                                    <Label Text="{Binding RoomName}" FontSize="16" FontAttributes="Bold"
-                                     HorizontalOptions="Center"/>
+                                    <Label Text="{Binding RoomName}" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding Email}" FontSize="16" FontAttributes="Bold"
+                                    HorizontalOptions="Center"/>
                                     <Label Text="{Binding StartTime, StringFormat='Starttid: {0:yyyy-MM-dd HH:mm}'}"
                                      HorizontalOptions="Center"/>
                                     <Label Text="{Binding EndTime, StringFormat='Sluttid: {0:yyyy-MM-dd HH:mm}'}"
@@ -48,4 +50,5 @@
         </Border>
 
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
