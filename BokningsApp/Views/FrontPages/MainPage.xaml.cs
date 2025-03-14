@@ -47,6 +47,7 @@ namespace BokningsApp
                 {
 
                     await SecureStorage.SetAsync("user_id", user.Id.ToString());
+                    await SecureStorage.SetAsync("user_email", user.Email);
 
                     if (user.Role == "Admin")
                     {

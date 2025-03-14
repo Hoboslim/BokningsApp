@@ -22,8 +22,11 @@ public partial class PickRoom : ContentPage
             DateTime selectedDate = DateTime.Parse(_ViewModel.SelectedDate);
             DateTime startDateTime = selectedDate.Date + _ViewModel.StartTime;
             DateTime endDateTime = selectedDate.Date + _ViewModel.EndTime;
+			startDateTime = DateTime.SpecifyKind(startDateTime, DateTimeKind.Unspecified);
+            endDateTime = DateTime.SpecifyKind(endDateTime, DateTimeKind.Unspecified);
 
             var userIdString = await SecureStorage.GetAsync("user_id");
+			var userEmail = await SecureStorage.GetAsync("user_email");
             
 
             if (string.IsNullOrEmpty(userIdString))
@@ -47,7 +50,10 @@ public partial class PickRoom : ContentPage
 
 			var booking = new Bookings
 			{
-				Id = userId,
+				Id = ObjectId.GenerateNewId(),
+				RoomName = _ViewModel.SelectedRoom.RoomName,
+                Email = userEmail,
+                UserId = userId,
 				RoomId = _ViewModel.SelectedRoom.Id,
 				StartTime = startDateTime,
 				EndTime = endDateTime,
@@ -57,6 +63,7 @@ public partial class PickRoom : ContentPage
             await bookingsCollection.InsertOneAsync(booking);
 
 			await DisplayAlert("Bokning lyckades!", "Rummet har bokats från den valda tiden","OK");
+
         }
 
         else

@@ -18,7 +18,7 @@ namespace BokningsApp.Views.User
             _viewModel = new BookingHistoryViewModel();
             BindingContext = _viewModel;
 
-            Task.Run(async () => await _viewModel.LoadUserBookings(loggedInUserId));
+            Task.Run(async () => await _viewModel.LoadUserBookings());
         }
     }
 }

@@ -14,33 +14,81 @@ namespace BokningsApp.ViewModels
         public ObservableCollection<Bookings> UserBookings { get; set; } = new();
         public BookingHistoryViewModel() { }
 
+        TimeZoneInfo swedenTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+
         public async Task LoadOldBookings()
         {
+            
             var oldBookings = await DB.GetBookingCollection()
                 .Find(b => b.EndTime < System.DateTime.UtcNow)
                 .ToListAsync();
-            OldBookings = new ObservableCollection<Bookings>(oldBookings);
-        }
 
-        public async Task LoadBookedRooms()
-        {
-            var bookedRooms = await DB.GetRoomCollection()
-                .Find(r => r.Bookings.Count > 0)
-                .ToListAsync();
-            BookedRooms = new ObservableCollection<Rooms>(bookedRooms);
-        }
-
-        public async Task LoadUserBookings(ObjectId loggedInUserId)
-        {
-            var userBookings = await DB.GetBookingCollection()
-                .Find(b => b.UserId == loggedInUserId)
-                .ToListAsync();
-
-            UserBookings.Clear();
-            foreach (var booking in userBookings)
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                UserBookings.Add(booking);
+                UserBookings.Clear();
+                foreach (var booking in oldBookings)
+                {
+                    booking.StartTime = TimeZoneInfo.ConvertTimeFromUtc(booking.StartTime, swedenTimeZone);
+                    booking.EndTime = TimeZoneInfo.ConvertTimeFromUtc(booking.EndTime, swedenTimeZone);
+
+                    UserBookings.Add(booking);
+                }
+            });
+        }
+
+        //public async Task LoadBookedRooms()
+        //{
+        //    var userIdString = await SecureStorage.GetAsync("user_id");
+        //    if (string.IsNullOrEmpty(userIdString))
+        //    {
+        //        await Application.Current.MainPage.DisplayAlert("Fel", "Ingen användare inloggad", "OK");
+        //        return;
+        //    }
+
+        //    var bookedRooms = await DB.GetRoomCollection()
+        //        .Find(r => r.Bookings.Count > 0)
+        //        .ToListAsync();
+        //    BookedRooms = new ObservableCollection<Bookings>(bookedRooms);
+
+        //    {
+        //        UserBookings.Clear();
+        //        foreach (var booking in bookedRooms)
+        //        {
+        //            booking.StartTime = TimeZoneInfo.ConvertTimeFromUtc(booking.StartTime, swedenTimeZone);
+        //            booking.EndTime = TimeZoneInfo.ConvertTimeFromUtc(booking.EndTime, swedenTimeZone);
+
+        //            UserBookings.Add(booking);
+        //        }
+        //    });
+        //}
+
+        public async Task LoadUserBookings()
+        {
+            var userIdString = await SecureStorage.GetAsync("user_id");
+            if (string.IsNullOrEmpty(userIdString))
+            {
+                await Application.Current.MainPage.DisplayAlert("Fel", "Ingen användare inloggad", "OK");
+                return;
             }
+
+            var loggedInUserId = new ObjectId(userIdString);
+
+            var userBookings = await Data.DB.GetBookingCollection()
+                .Find(b => b.UserId == loggedInUserId && b.EndTime >= DateTime.UtcNow)
+                .ToListAsync();
+
+            
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                UserBookings.Clear();
+                foreach (var booking in userBookings)
+                {
+                    booking.StartTime = TimeZoneInfo.ConvertTimeFromUtc(booking.StartTime, swedenTimeZone);
+                    booking.EndTime = TimeZoneInfo.ConvertTimeFromUtc(booking.EndTime, swedenTimeZone);
+
+                    UserBookings.Add(booking);
+                }
+            });
         }
     }
 }

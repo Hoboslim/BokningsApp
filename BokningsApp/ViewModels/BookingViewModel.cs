@@ -1,5 +1,6 @@
 ﻿using BokningsApp.Data;
 using BokningsApp.Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace BokningsApp.ViewModels
 {
     public class BookingViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<RoomTypes> RoomTypes { get; set; } = new ObservableCollection<RoomTypes>();
         public ObservableCollection<Rooms> AvailableRooms { get; set; } = new ObservableCollection<Rooms>();
+
 
         private string _selectedDate;
         private RoomTypes _SelectedRoomTypes;
@@ -25,6 +28,7 @@ namespace BokningsApp.ViewModels
 
         private TimeSpan _minimumTime = new TimeSpan(9, 0, 0);
         private TimeSpan _maximumTime = new TimeSpan(17, 0, 0);
+
 
         public string SelectedDate
         {
@@ -116,10 +120,6 @@ namespace BokningsApp.ViewModels
                 }
             }
         }
-
-        
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)
@@ -127,5 +127,4 @@ namespace BokningsApp.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-
 }

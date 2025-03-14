@@ -18,7 +18,17 @@
         <ListView ItemsSource="{Binding UserBookings}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding RoomId}" Detail="{Binding StartTime}" />
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding RoomName}" FontSize="16" FontAttributes="Bold"
+                                      HorizontalOptions="Center"/>
+                            <Label Text="{Binding StartTime, StringFormat='Starttid: {0:yyyy-MM-dd HH:mm}'}"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="{Binding EndTime, StringFormat='Sluttid: {0:yyyy-MM-dd HH:mm}'}"
+                                   HorizontalOptions="Center"/>
+                             
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

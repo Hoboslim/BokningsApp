@@ -27,15 +27,20 @@
             WidthRequest="300">
 
             <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
-                <Label
-                    Text="Bokade rum:"
-                    FontSize="Medium"
-                    HorizontalOptions="Center" />
-
-                <ListView ItemsSource="{Binding BookedRooms}">
+                <ListView ItemsSource="{Binding UserBookings}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding RoomName}" Detail="{Binding RoomType}" />
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding RoomName}" FontSize="16" FontAttributes="Bold"
+                                     HorizontalOptions="Center"/>
+                                    <Label Text="{Binding StartTime, StringFormat='Starttid: {0:yyyy-MM-dd HH:mm}'}"
+                                     HorizontalOptions="Center"/>
+                                    <Label Text="{Binding EndTime, StringFormat='Sluttid: {0:yyyy-MM-dd HH:mm}'}"
+                                     HorizontalOptions="Center"/>
+
+                                </StackLayout>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
