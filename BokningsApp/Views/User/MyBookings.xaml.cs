@@ -12,7 +12,7 @@ namespace BokningsApp.Views.User
     {
         private readonly BookingHistoryViewModel _viewModel;
 
-        public MyBookings(ObjectId loggedInUserId)
+        public MyBookings()
         {
             InitializeComponent();
             _viewModel = new BookingHistoryViewModel();

@@ -21,15 +21,9 @@ public partial class InLoggad : ContentPage
   
     private async void OnSeMinaBokade(object sender, EventArgs e)
     {
-        var loggedInUserId = GetLoggedInUserId();
-        await Navigation.PushAsync(new MyBookings(loggedInUserId));
+        
+        await Navigation.PushAsync(new MyBookings());
     }
 
-
-
-    private ObjectId GetLoggedInUserId()
-    {
-        var userIdString = Preferences.Get("LoggedInUserId", "");
-        return string.IsNullOrEmpty(userIdString) ? ObjectId.Empty : new ObjectId(userIdString);
-    }
+   
 }

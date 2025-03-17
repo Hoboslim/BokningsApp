@@ -106,9 +106,6 @@
 	  <MauiXaml Update="Views\User\PickRoom.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\User\PickTime.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\User\ThankYouPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

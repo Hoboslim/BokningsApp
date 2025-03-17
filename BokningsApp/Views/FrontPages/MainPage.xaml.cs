@@ -68,10 +68,6 @@ namespace BokningsApp
 
         }
 
-        //private async void OnAdminPage(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushAsync(new AdminLoggedIn());
-        //}
     }
 }
 

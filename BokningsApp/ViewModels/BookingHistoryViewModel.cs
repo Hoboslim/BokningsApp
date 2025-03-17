@@ -10,15 +10,7 @@ namespace BokningsApp.ViewModels
 {
     public class BookingHistoryViewModel
     {
-        public ObservableCollection<Bookings> OldBookings { get; set; } = new();
-        public ObservableCollection<Rooms> BookedRooms { get; set; } = new();
         public ObservableCollection<Bookings> UserBookings { get; set; } = new();
-        
-        public BookingHistoryViewModel() 
-        {
-            
-        }
-        
 
         TimeZoneInfo swedenTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
 
@@ -45,7 +37,6 @@ namespace BokningsApp.ViewModels
 
         public async Task LoadBookedRooms()
         {
-     
               var bookings = await DB.GetBookingCollection()
                 .Find(b => b.EndTime >= System.DateTime.UtcNow)
                 .ToListAsync();
@@ -66,11 +57,6 @@ namespace BokningsApp.ViewModels
         public async Task LoadUserBookings()
         {
             var userIdString = await SecureStorage.GetAsync("user_id");
-            if (string.IsNullOrEmpty(userIdString))
-            {
-                await Application.Current.MainPage.DisplayAlert("Fel", "Ingen användare inloggad", "OK");
-                return;
-            }
 
             var loggedInUserId = new ObjectId(userIdString);
 

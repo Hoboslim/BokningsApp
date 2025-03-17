@@ -16,6 +16,6 @@ namespace BokningsApp.Models
         public ObjectId RoomId { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public List<ObjectId> Participants { get; set; }
+       
     }
 }

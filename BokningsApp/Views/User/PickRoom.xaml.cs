@@ -34,9 +34,9 @@ public partial class PickRoom : ContentPage
 
     private async void OnBookClicked(object sender, EventArgs e)
     {
-        if (_viewModel.BookingVM.SelectedRoom != null
-            && _viewModel.BookingVM.StartTime != null
-            && _viewModel.BookingVM.EndTime != null)
+        if (_viewModel.BookingVM.SelectedRoom != null 
+            && _viewModel.BookingVM.StartTime != null && _viewModel.BookingVM.EndTime != null)
+           
         {
             DateTime selectedDate = DateTime.Parse(_viewModel.BookingVM.SelectedDate);
             DateTime startDateTime = selectedDate.Date + _viewModel.BookingVM.StartTime;
@@ -45,7 +45,7 @@ public partial class PickRoom : ContentPage
             startDateTime = DateTime.SpecifyKind(startDateTime, DateTimeKind.Unspecified);
             endDateTime = DateTime.SpecifyKind(endDateTime, DateTimeKind.Unspecified);
 
-			var userIdString = await SecureStorage.GetAsync("user_id");
+            var userIdString = await SecureStorage.GetAsync("user_id");
 			var userEmail = await SecureStorage.GetAsync("user_email");
 
 			TimeSpan minTime = new TimeSpan(7, 0, 0);
@@ -100,7 +100,7 @@ public partial class PickRoom : ContentPage
                 RoomId = _viewModel.BookingVM.SelectedRoom.Id,
                 StartTime = startDateTime,
                 EndTime = endDateTime,
-                Participants = new List<ObjectId> { userId }
+               
             };
 
             var bookingsCollection = Data.DB.GetBookingCollection();
