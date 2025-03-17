@@ -18,10 +18,7 @@ public partial class InLoggad : ContentPage
     {
         await Navigation.PushAsync(new InfoOmRum());
     }
-    private async void OnAvbokaRum(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new CancelRoom());
-    }
+  
     private async void OnSeMinaBokade(object sender, EventArgs e)
     {
         var loggedInUserId = GetLoggedInUserId();

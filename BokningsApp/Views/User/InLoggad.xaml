@@ -39,17 +39,6 @@
             Clicked="OnInfoOmRum" />
 
         <Button
-            Text="Avboka Rum"
-            FontSize="Medium"
-            WidthRequest="250"
-            BackgroundColor="Black"
-            TextColor="White"
-            BorderWidth="5"
-            BorderColor="AliceBlue"
-            Margin="15"
-            Clicked="OnAvbokaRum" />
-
-        <Button
             Text="Se mina bokade rum"
             FontSize="Medium"
             WidthRequest="300"
