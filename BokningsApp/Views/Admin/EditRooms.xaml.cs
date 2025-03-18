@@ -24,7 +24,7 @@ public partial class EditRooms : ContentPage
     }
     public async void LoadRoomsFromDB()
     {
-        var roomCollection = DB.GetRoomsCollection();
+        var roomCollection = DB.GetRoomCollection();
         var rooms = await roomCollection.Find(FilterDefinition<Models.Rooms>.Empty).ToListAsync();
 
         roomData = rooms
@@ -45,7 +45,7 @@ public partial class EditRooms : ContentPage
 
     private async void OnEditRoomPicked(object sender, EventArgs e)
     {
-        var room = await DB.GetRoomsCollection().Find(r => r.RoomName == roomPicker.SelectedItem.ToString()).FirstOrDefaultAsync();
+        var room = await DB.GetRoomCollection().Find(r => r.RoomName == roomPicker.SelectedItem.ToString()).FirstOrDefaultAsync();
         await Navigation.PushAsync(new EditRoomDetails(room));
     }
 

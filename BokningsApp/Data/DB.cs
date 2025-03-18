@@ -26,13 +26,6 @@ namespace BokningsApp.Data
             return collection;
         }
 
-        public static IMongoCollection<Models.Rooms> GetRoomCollection()
-        {
-            var client = GetClient();
-            var database = client.GetDatabase("BokningsApp");
-            var collection = database.GetCollection<Models.Rooms>("Rooms");
-            return collection;
-        }
 
         public static IMongoCollection<Models.Bookings> GetBookingCollection()
         {
@@ -48,14 +41,12 @@ namespace BokningsApp.Data
             var collection = database.GetCollection<Models.RoomTypes>("RoomTypes");
             return collection;
         }
-
-        public static IMongoCollection<Models.Rooms> GetRoomsCollection()
+        public static IMongoCollection<Models.Rooms> GetRoomCollection()
         {
             var client = GetClient();
             var database = client.GetDatabase("BokningsApp");
             var collection = database.GetCollection<Models.Rooms>("Rooms");
             return collection;
         }
-
     }
 }

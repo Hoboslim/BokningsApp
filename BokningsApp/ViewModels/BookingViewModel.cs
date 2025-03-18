@@ -26,8 +26,6 @@ namespace BokningsApp.ViewModels
         private TimeSpan _startTime;
         private TimeSpan _endTime;
 
-        private TimeSpan _minimumTime = new TimeSpan(9, 0, 0);
-        private TimeSpan _maximumTime = new TimeSpan(17, 0, 0);
 
 
         public string SelectedDate
@@ -109,7 +107,7 @@ namespace BokningsApp.ViewModels
         {
             if (roomType != null)
             {
-                var roomsCollection = DB.GetRoomsCollection();
+                var roomsCollection = DB.GetRoomCollection();
                 var rooms = await roomsCollection
                     .Find(r => r.RoomType == roomType.RoomType)
                     .ToListAsync();

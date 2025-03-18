@@ -51,7 +51,6 @@ namespace BokningsApp
             }
         }
 
-        //laddar dynamiskt in rumtyperna från mongoDB
         private void LoadRoomTypes()
         {
             var roomTypes = _roomInformation.GetAllRoomTypes();
