@@ -1,4 +1,5 @@
 ﻿using BokningsApp.Admin;
+using BokningsApp.Data;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MongoDB.Driver;
 using System.Linq.Expressions;
@@ -46,8 +47,10 @@ namespace BokningsApp
                 if (user != null && user.Password == password)
                 {
 
-                    await SecureStorage.SetAsync("user_id", user.Id.ToString());
-                    await SecureStorage.SetAsync("user_email", user.Email);
+                    await SecureStorageManager.Instance.SaveUserCredentialsAsync(user.Id.ToString(), user.Email);
+
+                    string userId = await SecureStorageManager.Instance.GetUserIdAsync();
+                    string userEmail = await SecureStorageManager.Instance.GetUserEmailAsync();
 
                     if (user.Role == "Admin")
                     {
