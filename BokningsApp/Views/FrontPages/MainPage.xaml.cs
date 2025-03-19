@@ -49,8 +49,8 @@ namespace BokningsApp
 
                     await SecureStorageManager.Instance.SaveUserCredentialsAsync(user.Id.ToString(), user.Email);
 
-                    string userId = await SecureStorageManager.Instance.GetUserIdAsync();
-                    string userEmail = await SecureStorageManager.Instance.GetUserEmailAsync();
+                    string userId = user.Id.ToString();
+                    string userEmail = user.Email;
 
                     if (user.Role == "Admin")
                     {
