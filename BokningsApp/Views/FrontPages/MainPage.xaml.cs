@@ -47,7 +47,8 @@ namespace BokningsApp
                 if (user != null && user.Password == password)
                 {
 
-                    await SecureStorageManager.Instance.SaveUserCredentialsAsync(user.Id.ToString(), user.Email);
+                    await SecureStorageManager.Instance.SaveCredentialsAsync(user.Id.ToString(), user.Email);
+
 
                     string userId = user.Id.ToString();
                     string userEmail = user.Email;
